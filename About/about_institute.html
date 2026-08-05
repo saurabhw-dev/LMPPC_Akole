@@ -11,9 +11,120 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/homepage.css">
     <style>
+        /* SOCIETY HERO */
+        .society-hero {
+            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .society-hero-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .society-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #fff;
+            margin: 12px 0 10px;
+            line-height: 1.25;
+        }
+
+        .society-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 400;
+        }
+
+        /* SOCIETY CONTENT */
+        .society-content {
+            background: var(--paper);
+            padding: 70px 60px;
+        }
+
+        .society-content-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* SOCIETY CONTENT — entry animation */
+        .society-content-wrap-full>* {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .society-content-wrap-full .founder-eyebrow {
+            transition-delay: 0.05s;
+        }
+
+        .society-content-wrap-full .society-heading {
+            transition-delay: 0.18s;
+        }
+
+        .society-content-wrap-full .society-para:nth-of-type(1) {
+            transition-delay: 0.32s;
+        }
+
+        .society-content-wrap-full .society-para:nth-of-type(2) {
+            transition-delay: 0.46s;
+        }
+
+        .society-content-wrap-full .society-para:nth-of-type(3) {
+            transition-delay: 0.6s;
+        }
+
+        .society-content.in-view .society-content-wrap-full>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .society-image-frame {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            border: 6px solid #fff;
+            outline: 1px solid var(--line);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.15);
+        }
+
+        .society-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .society-heading {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: #1F4D3D;
+            line-height: 1.25;
+            margin: 10px 0 22px;
+        }
+
+        .society-para {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* PROGRAMS / REACH STRIP */
         .society-reach {
             background: var(--paper);
             padding: 80px 60px;
+            border-top: 1px solid var(--line);
         }
 
         .society-reach-wrap {
@@ -32,7 +143,7 @@
         .reach-subtitle {
             font-size: 14.5px;
             color: #6b6b6b;
-            max-width: 560px;
+            max-width: 600px;
             margin: 0 0 44px;
         }
 
@@ -42,7 +153,6 @@
             gap: 16px;
         }
 
-        /* Rectangular horizontal box */
         .reach-box {
             position: relative;
             display: flex;
@@ -55,8 +165,7 @@
             overflow: hidden;
             opacity: 0;
             transform: translateX(-30px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .society-reach.in-view .reach-box {
@@ -85,7 +194,6 @@
             border-color: #E8C97A;
         }
 
-        /* Gold accent bar that grows on hover */
         .reach-box::before {
             content: '';
             position: absolute;
@@ -150,92 +258,58 @@
             color: #1F4D3D;
         }
 
-        @media (max-width: 640px) {
-            .society-reach {
-                padding: 50px 20px;
-            }
-
-            .reach-box {
-                padding: 20px 20px;
-                gap: 16px;
-            }
-
-            .reach-num {
-                font-size: 24px;
-                width: 40px;
-            }
-
-            .reach-box-icon {
-                display: none;
-            }
+        /* HERITAGE SECTION */
+        .heritage-section {
+            background: #f6f2e9;
+            padding: 70px 60px;
         }
 
-        .society-hero {
-            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
-            padding: 70px 60px;
+        /* HERITAGE SECTION — entry animation */
+        .heritage-wrap>* {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .heritage-wrap .founder-eyebrow {
+            transition-delay: 0.05s;
+        }
+
+        .heritage-wrap .heritage-title {
+            transition-delay: 0.2s;
+        }
+
+        .heritage-wrap .heritage-para {
+            transition-delay: 0.35s;
+        }
+
+        .heritage-section.in-view .heritage-wrap>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .heritage-wrap {
+            max-width: 780px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .society-hero-wrap {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .society-title {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 38px;
+        .heritage-title {
+            font-family: Georgia, serif;
+            font-size: 26px;
             font-weight: 800;
-            color: #fff;
-            margin: 12px 0 10px;
-            line-height: 1.25;
+            color: #1F4D3D;
+            margin: 10px 0 20px;
         }
 
-        .society-subtitle {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: 400;
-        }
-
-        .society-content {
-            background: var(--paper);
-            padding: 70px 60px;
-        }
-
-        .society-content-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .society-image-frame {
-            border-radius: 14px;
-            overflow: hidden;
-            aspect-ratio: 4 / 5;
-            border: 6px solid #fff;
-            outline: 1px solid var(--line);
-            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.15);
-        }
-
-        .society-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .society-para {
-            font-size: 15px;
+        .heritage-para {
+            font-size: 14.5px;
             line-height: 1.85;
-            color: #444;
-            margin-bottom: 20px;
+            color: #555;
             text-align: justify;
-            text-justify: inter-word;
         }
 
+        /* RESPONSIVE */
         @media (max-width: 960px) {
             .society-hero {
                 padding: 50px 24px;
@@ -258,65 +332,37 @@
                 max-width: 340px;
                 margin: 0 auto;
             }
-        }
 
-        /* SOCIETY HERO — entry animation */
-        .society-hero-wrap>* {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+            .society-heading {
+                font-size: 24px;
+                margin: 8px 0 18px;
+            }
 
-        .society-hero-wrap .founder-eyebrow {
-            transition-delay: 0.1s;
-        }
+            .society-reach {
+                padding: 50px 24px;
+            }
 
-        .society-hero-wrap .society-title {
-            transition-delay: 0.25s;
-        }
+            .reach-title {
+                font-size: 23px;
+            }
 
-        .society-hero-wrap .society-subtitle {
-            transition-delay: 0.4s;
-        }
+            .reach-box {
+                padding: 20px 20px;
+                gap: 16px;
+            }
 
-        .society-hero.in-view .society-hero-wrap>* {
-            opacity: 1;
-            transform: translateY(0);
-        }
+            .reach-num {
+                font-size: 24px;
+                width: 40px;
+            }
 
-        /* SOCIETY CONTENT — image slides from left, text fades up with stagger */
-        .society-image-col {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+            .reach-box-icon {
+                display: none;
+            }
 
-        .society-text-col .society-para {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .society-text-col .society-para:nth-child(1) {
-            transition-delay: 0.15s;
-        }
-
-        .society-text-col .society-para:nth-child(2) {
-            transition-delay: 0.3s;
-        }
-
-        .society-text-col .society-para:nth-child(3) {
-            transition-delay: 0.45s;
-        }
-
-        .society-content.in-view .society-image-col {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .society-content.in-view .society-text-col .society-para {
-            opacity: 1;
-            transform: translateY(0);
+            .heritage-section {
+                padding: 44px 20px;
+            }
         }
     </style>
 
@@ -447,60 +493,48 @@
     </header>
 
 
-
     <section class="society-content">
-        <div class="society-content-wrap">
+        <div class="society-content-wrap-full">
+            <span class="founder-eyebrow">Who We Are</span>
+            <h2 class="society-heading">About the Institute</h2>
 
-            <div class="society-image-col">
-                <div class="society-image-frame">
-                    <img src="../images/About/About_Society.png" alt="Akole Taluka Education Society Campus">
-                </div>
-            </div>
-
-            <div class="society-text-col">
-                <span class="founder-eyebrow">Who We Are</span>
-                <h2 class="society-heading">About the Society</h2>
-
-                <p class="society-para">
-                    Akole Taluka Education Society, Akole, Dist. Ahmednagar, Maharashtra state, is among the
-                    pioneer education trusts established by Late Mr. Dadasaheb Rupwate and Honourable Mr.
-                    Madhukarrao Pichad (Ex-Minister of State, Tribal Development, Maharashtra State) along with
-                    hundreds of social workers in 1972.
-                </p>
-                <p class="society-para">
-                    During 1971–1972, Maharashtra was undergoing a very dreadful famine, and millions of workers
-                    were working on the Employment Guarantee Scheme for their daily bread all over the state.
-                    Doorstep facilities of education are a very noble cause of social engineering, justice, and
-                    equality. Leaders of all political parties in the region assembled here and bound together
-                    to achieve optimal progress in education, especially in the rural area of Ahmednagar district,
-                    Akole.
-                </p>
-                <p class="society-para">
-                    An objective of ATES is to provide quality education in the field of Science, Art, Commerce,
-                    Engineering, Computer Application, and Business, along with primary education from
-                    kindergarten onwards. The facilities on this campus stand at international quality norms.
-                    The campus offers courses in Management, Computer Applications, and Engineering faculties as
-                    a doorstep action — not only for rural, semi-urban, and urban beneficiaries, but also for
-                    international students.
-                </p>
-            </div>
-
+            <p class="society-para">
+                Engineering diploma education has always been an important driving force behind the
+                technological innovations for a country's development, growth, and prosperity. Faculty of
+                Polytechnic, Akole is a private, self-financed institution established by the Akole Taluka
+                Education Society (ATES), Dist. Ahmednagar, Maharashtra state, in the year 2014.
+            </p>
+            <p class="society-para">
+                The trust ATES was established in 1971–72 under the dynamic and visionary leadership of
+                Late Mr. Dadasaheb Rupwate and Honourable Mr. Madhukarrao Pichad (Ex-Minister of State,
+                Tribal Development, Maharashtra State), with an objective of providing quality education in
+                the fields of Art, Commerce, Engineering, Computer Application, Business, and primary
+                education from kindergarten onwards. FOP, Akole is located 1.5 kms away from Akole bus stand.
+            </p>
+            <p class="society-para">
+                FOP, Akole works with a vision to achieve excellence in education, research, and service to
+                industry, and to develop in students a sense of moral duty and responsibility toward society
+                through various co-curricular and social activities.
+            </p>
         </div>
     </section>
-    <section class="society-reach" id="reach">
+
+    <!-- PROGRAMS HIGHLIGHT STRIP -->
+    <section class="society-reach" id="programs">
         <div class="society-reach-wrap">
-            <span class="founder-eyebrow">Our Reach</span>
-            <h2 class="reach-title">From Rural Roots to a Global Outlook</h2>
+            <span class="founder-eyebrow">Our Programs</span>
+            <h2 class="reach-title">Four Diploma Programs, One Shared Vision</h2>
             <p class="reach-subtitle">
-                Serving as a doorstep gateway to education for every kind of learner — wherever they come from.
+                Three-year engineering diploma programmes, approved by AICTE and affiliated to MSBTE, Mumbai —
+                with a total annual intake of 300 students.
             </p>
 
             <div class="reach-list">
                 <div class="reach-box">
                     <div class="reach-num">01</div>
                     <div class="reach-box-content">
-                        <h3>Rural</h3>
-                        <p>Bringing quality education directly to villages and remote communities of Akole taluka.</p>
+                        <h3>Mechanical Engineering</h3>
+                        <p>Building strong fundamentals in design, manufacturing, and industrial systems.</p>
                     </div>
                     <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
@@ -511,8 +545,8 @@
                 <div class="reach-box">
                     <div class="reach-num">02</div>
                     <div class="reach-box-content">
-                        <h3>Semi-Urban</h3>
-                        <p>Expanding access for students in growing towns across Ahmednagar district.</p>
+                        <h3>Electronics &amp; Telecommunication Engineering</h3>
+                        <p>Preparing students for the evolving world of electronics and communication technology.</p>
                     </div>
                     <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
@@ -523,8 +557,8 @@
                 <div class="reach-box">
                     <div class="reach-num">03</div>
                     <div class="reach-box-content">
-                        <h3>Urban</h3>
-                        <p>Meeting the ambitions of students from cities seeking industry-relevant skills.</p>
+                        <h3>Computer Engineering</h3>
+                        <p>Equipping students with strong programming, systems, and software development skills.</p>
                     </div>
                     <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
@@ -535,9 +569,8 @@
                 <div class="reach-box">
                     <div class="reach-num">04</div>
                     <div class="reach-box-content">
-                        <h3>International</h3>
-                        <p>Welcoming students from beyond India's borders to a campus built on global-standard
-                            facilities.</p>
+                        <h3>Civil Engineering</h3>
+                        <p>Training future engineers in construction, infrastructure, and structural design.</p>
                     </div>
                     <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
@@ -545,6 +578,22 @@
                     </svg>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CULTURAL HERITAGE NOTE -->
+    <section class="heritage-section">
+        <div class="heritage-wrap">
+            <span class="founder-eyebrow">A Note of Heritage</span>
+            <h2 class="heritage-title">The Legacy of Lord Agasti</h2>
+            <p class="heritage-para">
+                We would like to make a humble note of our richest cultural heritage — that of Lord Agasti.
+                He is remembered as the first Arya to cross the Vindhya mountain ranges and settle at this very
+                place, where a famous temple of Lord Agasti stands today on the banks of the river Pravara.
+                Agasti was the pioneer grammarian of the Tamil language and a social revolutionary whose marriage
+                to Lopamudra is regarded as the first inter-caste marriage. It is in keeping with this tradition
+                that we welcome you all to our campus.
+            </p>
         </div>
     </section>
 
@@ -663,87 +712,9 @@
             });
         });
     </script>
-    <script>
-        const slideEls = document.querySelectorAll('.slideshow .slide');
-        const dotsContainer = document.getElementById('slideDots');
-        const prevBtn = document.getElementById('slidePrev');
-        const nextBtn = document.getElementById('slideNext');
-        const currentLabel = document.getElementById('slideCurrent');
-        const totalLabel = document.getElementById('slideTotal');
-        const progressBar = document.getElementById('slideProgressBar');
-
-        let current = 0;
-        let timer;
-        const DURATION = 5000;
-
-        totalLabel.textContent = String(slideEls.length).padStart(2, '0');
-
-        slideEls.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
-            dot.addEventListener('click', () => go(i));
-            dotsContainer.appendChild(dot);
-        });
-        const dotEls = document.querySelectorAll('.slide-dot');
-
-        function go(index) {
-            slideEls[current].classList.remove('active');
-            dotEls[current].classList.remove('active');
-
-            // restart kenburns animation on the image
-            const oldImg = slideEls[current].querySelector('.slide-img');
-            oldImg.style.animation = 'none';
-            void oldImg.offsetWidth;
-            oldImg.style.animation = '';
-
-            current = (index + slideEls.length) % slideEls.length;
-
-            slideEls[current].classList.add('active');
-            dotEls[current].classList.add('active');
-            currentLabel.textContent = String(current + 1).padStart(2, '0');
-
-            restartProgress();
-            restartAutoplay();
-        }
-
-        function next() { go(current + 1); }
-        function prev() { go(current - 1); }
-
-        function restartProgress() {
-            progressBar.classList.remove('animate');
-            void progressBar.offsetWidth;
-            progressBar.classList.add('animate');
-        }
-
-        function restartAutoplay() {
-            clearTimeout(timer);
-            timer = setTimeout(next, DURATION);
-        }
-
-        nextBtn.addEventListener('click', next);
-        prevBtn.addEventListener('click', prev);
-
-        restartProgress();
-        restartAutoplay();
-    </script>
-    <script>
-        const reachSection = document.querySelector('.society-reach');
-
-        const reachObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                } else {
-                    entry.target.classList.remove('in-view');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-        if (reachSection) reachObserver.observe(reachSection);
-    </script>
 
     <script>
-        const animatedSections = document.querySelectorAll('.society-hero, .society-content, .society-reach');
+        const animatedSections = document.querySelectorAll('.society-hero, .society-content, .society-reach, .heritage-section');
 
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -757,7 +728,6 @@
 
         animatedSections.forEach(el => sectionObserver.observe(el));
     </script>
-
 
 </body>
 

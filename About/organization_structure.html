@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKNETE MADHUKARRAO PICHAD POLYTECHNIC COLLEGE, AKOLE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <style>
+        /* SOCIETY HERO (reused) */
+        .society-hero {
+            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .society-hero-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .society-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #fff;
+            margin: 12px 0 10px;
+            line-height: 1.25;
+        }
+
+        .society-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 400;
+        }
+
+        /* ORGANIZATION STRUCTURE IMAGE SECTION */
+        .org-structure-section {
+            background: var(--paper);
+            padding: 70px 60px;
+        }
+
+        .org-structure-wrap {
+            max-width: 950px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .org-structure-frame {
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            border: 6px solid #fff;
+            outline: 1px solid var(--line);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
+            padding: 20px;
+            margin-bottom: 26px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .org-structure-section.in-view .org-structure-frame {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .org-structure-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
+        .org-structure-caption {
+            font-size: 14px;
+            line-height: 1.75;
+            color: #6b6b6b;
+            max-width: 680px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+        }
+
+        .org-structure-section.in-view .org-structure-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 700px) {
+            .org-structure-section {
+                padding: 44px 20px;
+            }
+
+            .org-structure-frame {
+                padding: 10px;
+            }
+
+            .society-title {
+                font-size: 27px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="masthead">
+        <div class="wrap">
+            <div class="badges">
+                <span>AICTE Approved</span>
+                <span>MSBTE Affiliated</span>
+                <span>Est. 1983</span>
+            </div>
+            <span>principal@atespoly.co.in &nbsp;|&nbsp; (02424) 221245</span>
+        </div>
+    </div>
+
+    <header id="siteHeader">
+        <div class="wrap">
+            <a href="#" class="brand">
+                <img src="../images/akole_taluka_education_society_s_faculty_of_polytechnic_akole_logo.jpg"
+                    alt="Loknete Madhukarrao Pichad Polytechnic College Logo" class="brand-logo">
+                <span class="brand-text">
+                    <span class="brand-society">Akole Taluka Education Society's</span>
+                    <span class="brand-name-line">Loknete Madhukarrao Pichad</span>
+                    <span class="brand-name-line">Polytechnic College</span>
+                    <span class="brand-location">Akole · Dist. Ahmednagar, Maharashtra</span>
+                </span>
+            </a>
+            <nav>
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html">Home</a>
+                    <div class="nav-dropdown">
+                        <a href="#about" class="nav-dropdown-toggle">
+                            About
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" width="12" height="12">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <div class="dropdown-header">
+                                <span class="dropdown-eyebrow">Explore</span>
+                                <span class="dropdown-title">About Our Institution</span>
+                            </div>
+                            <div class="dropdown-grid">
+                                <a href="about_society.html" class="dropdown-item">
+                                    <span class="item-icon">🏛️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">About Society</span>
+                                        <span class="item-desc">Our founding trust &amp; legacy</span>
+                                    </span>
+                                </a>
+                                <a href="about_institute.html" class="dropdown-item">
+                                    <span class="item-icon">🎓</span>
+                                    <span class="item-text">
+                                        <span class="item-title">About Institute</span>
+                                        <span class="item-desc">Our college &amp; programs</span>
+                                    </span>
+                                </a>
+                                <a href="about_mission_vision.html" class="dropdown-item">
+                                    <span class="item-icon">🎯</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Mission &amp; Vision</span>
+                                        <span class="item-desc">What drives us forward</span>
+                                    </span>
+                                </a>
+                                <a href="organization_structure.html" class="dropdown-item">
+                                    <span class="item-icon">🗂️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Organization Structure</span>
+                                        <span class="item-desc">How we're organized</span>
+                                    </span>
+                                </a>
+                                <a href="#governing-body" class="dropdown-item">
+                                    <span class="item-icon">⚖️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Governing Body</span>
+                                        <span class="item-desc">Leadership &amp; oversight</span>
+                                    </span>
+                                </a>
+                                <a href="#lmc" class="dropdown-item">
+                                    <span class="item-icon">👥</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Local Management</span>
+                                        <span class="item-desc">Committee members</span>
+                                    </span>
+                                </a>
+                                <a href="#chairman-desk" class="dropdown-item">
+                                    <span class="item-icon">✍️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Chairman's Desk</span>
+                                        <span class="item-desc">A message to students</span>
+                                    </span>
+                                </a>
+                                <a href="#principals-desk" class="dropdown-item">
+                                    <span class="item-icon">📋</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Principal's Desk</span>
+                                        <span class="item-desc">A message from leadership</span>
+                                    </span>
+                                </a>
+                                <a href="#admin-staff" class="dropdown-item">
+                                    <span class="item-icon">👤</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Our Admin Staff</span>
+                                        <span class="item-desc">Meet the team</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#departments">Departments</a>
+                    <a href="#placement">T&amp;P Cell</a>
+                    <a href="#admission">Admission</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#admission" class="btn btn-ghost mobile-only">Apply Now</a>
+                </div>
+                <a href="#admission" class="btn btn-ghost desktop-only">Apply Now</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!--<section class="society-hero">
+        <div class="society-hero-wrap">
+            <span class="founder-eyebrow">How We're Organized</span>
+            <h1 class="society-title">Organization Structure</h1>
+            <p class="society-subtitle">Our institute's reporting hierarchy, from leadership to every department</p>
+        </div>
+    </section>-->
+
+    <section class="org-structure-section">
+        <div class="org-structure-wrap">
+            <div class="org-structure-frame">
+                <img src="../images/About/organization_structure_img.jpg"
+                    alt="Organization Structure Chart - Faculty of Polytechnic, Akole">
+            </div>
+            <p class="org-structure-caption">
+                The chart above outlines our institute's governance flow — from the Chairman and Secretary of
+                Akole Taluka Education Society, through the Principal, down to every academic and
+                administrative department that keeps the campus running smoothly.
+            </p>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <div class="brand" style="color:var(--paper); margin-bottom:14px;">
+                        <img src="../images/akole_taluka_education_society_s_faculty_of_polytechnic_akole_logo.jpg"
+                            alt="Akole Taluka Education Society Emblem" class="brand-mark">
+                        <span class="brand-text" style="font-size:13px; color:var(--paper);">Loknete Madhukarrao
+                            Pichad<br>Polytechnic College<span style="color:var(--gold);">Akole,
+                                Maharashtra</span></span>
+                    </div>
+                    <p style="font-size:12.5px; line-height:1.6; max-width:280px; opacity:0.7;">AICTE approved · MSBTE
+                        affiliated
+                        diploma engineering institute, established 1983.</p>
+                </div>
+                <div>
+                    <h4>Institute</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#placement">T&amp;P Cell</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Admission</h4>
+                    <ul>
+                        <li><a href="#admission">Admission Process</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">Scholarship Section</a></li>
+                        <li><a href="#">Rules &amp; Regulations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">MSBTE</a></li>
+                        <li><a href="#">AICTE</a></li>
+                        <li><a href="#">DTE Maharashtra</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span class="mono">&copy; 2026 Loknete Madhukarrao Pichad Polytechnic College, Akole</span>
+                <span class="mono">AICTE APPROVED · MSBTE AFFILIATED</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => io.observe(el));
+
+        const statNums = document.querySelectorAll('.stat-num');
+        const countIO = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count'), 10);
+                    const duration = 1500;
+                    const start = performance.now();
+                    function tick(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        el.textContent = Math.floor(eased * target).toLocaleString();
+                        if (p < 1) requestAnimationFrame(tick);
+                        else el.textContent = target.toLocaleString();
+                    }
+                    requestAnimationFrame(tick);
+                    countIO.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNums.forEach(el => countIO.observe(el));
+
+        function handleSubmit() {
+            document.getElementById('formNote').style.display = 'block';
+        }
+    </script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+    <script>
+        const animatedSections = document.querySelectorAll('.society-hero, .org-structure-section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+                else entry.target.classList.remove('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        animatedSections.forEach(el => sectionObserver.observe(el));
+    </script>
+
+
+
+</body>
+
+</html>
