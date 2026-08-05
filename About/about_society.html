@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKNETE MADHUKARRAO PICHAD POLYTECHNIC COLLEGE, AKOLE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <style>
+        .society-reach {
+            background: var(--paper);
+            padding: 80px 60px;
+        }
+
+        .society-reach-wrap {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .reach-title {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: #1F4D3D;
+            margin: 10px 0 12px;
+        }
+
+        .reach-subtitle {
+            font-size: 14.5px;
+            color: #6b6b6b;
+            max-width: 560px;
+            margin: 0 0 44px;
+        }
+
+        .reach-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Rectangular horizontal box */
+        .reach-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 28px 32px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .society-reach.in-view .reach-box {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reach-list .reach-box:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .reach-list .reach-box:nth-child(2) {
+            transition-delay: 0.18s;
+        }
+
+        .reach-list .reach-box:nth-child(3) {
+            transition-delay: 0.31s;
+        }
+
+        .reach-list .reach-box:nth-child(4) {
+            transition-delay: 0.44s;
+        }
+
+        .reach-box:hover {
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+            border-color: #E8C97A;
+        }
+
+        /* Gold accent bar that grows on hover */
+        .reach-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #E8C97A, #C9971F);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reach-box:hover::before {
+            transform: scaleY(1);
+        }
+
+        .reach-num {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #EDE6D2;
+            flex-shrink: 0;
+            width: 60px;
+            transition: color 0.3s ease;
+        }
+
+        .reach-box:hover .reach-num {
+            color: #E8C97A;
+        }
+
+        .reach-box-content {
+            flex: 1;
+        }
+
+        .reach-box-content h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1F4D3D;
+            margin-bottom: 4px;
+        }
+
+        .reach-box-content p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #6b6b6b;
+        }
+
+        .reach-box-icon {
+            width: 20px;
+            height: 20px;
+            color: #c9c4b3;
+            flex-shrink: 0;
+            transform: translateX(-6px);
+            opacity: 0;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, color 0.3s ease;
+        }
+
+        .reach-box:hover .reach-box-icon {
+            transform: translateX(0);
+            opacity: 1;
+            color: #1F4D3D;
+        }
+
+        @media (max-width: 640px) {
+            .society-reach {
+                padding: 50px 20px;
+            }
+
+            .reach-box {
+                padding: 20px 20px;
+                gap: 16px;
+            }
+
+            .reach-num {
+                font-size: 24px;
+                width: 40px;
+            }
+
+            .reach-box-icon {
+                display: none;
+            }
+        }
+
+        .society-hero {
+            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .society-hero-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .society-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #fff;
+            margin: 12px 0 10px;
+            line-height: 1.25;
+        }
+
+        .society-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 400;
+        }
+
+        .society-content {
+            background: var(--paper);
+            padding: 70px 60px;
+        }
+
+        .society-content-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .society-image-frame {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            border: 6px solid #fff;
+            outline: 1px solid var(--line);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.15);
+        }
+
+        .society-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .society-para {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 960px) {
+            .society-hero {
+                padding: 50px 24px;
+            }
+
+            .society-title {
+                font-size: 27px;
+            }
+
+            .society-content {
+                padding: 50px 24px;
+            }
+
+            .society-content-wrap {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .society-image-frame {
+                max-width: 340px;
+                margin: 0 auto;
+            }
+        }
+
+        /* SOCIETY HERO — entry animation */
+        .society-hero-wrap>* {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .society-hero-wrap .founder-eyebrow {
+            transition-delay: 0.1s;
+        }
+
+        .society-hero-wrap .society-title {
+            transition-delay: 0.25s;
+        }
+
+        .society-hero-wrap .society-subtitle {
+            transition-delay: 0.4s;
+        }
+
+        .society-hero.in-view .society-hero-wrap>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* SOCIETY CONTENT — image slides from left, text fades up with stagger */
+        .society-image-col {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .society-text-col .society-para {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .society-text-col .society-para:nth-child(1) {
+            transition-delay: 0.15s;
+        }
+
+        .society-text-col .society-para:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+
+        .society-text-col .society-para:nth-child(3) {
+            transition-delay: 0.45s;
+        }
+
+        .society-content.in-view .society-image-col {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .society-content.in-view .society-text-col .society-para {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="masthead">
+        <div class="wrap">
+            <div class="badges">
+                <span>AICTE Approved</span>
+                <span>MSBTE Affiliated</span>
+                <span>Est. 1983</span>
+            </div>
+            <span>principal@atespoly.co.in &nbsp;|&nbsp; (02424) 221245</span>
+        </div>
+    </div>
+
+    <header id="siteHeader">
+        <div class="wrap">
+            <a href="#" class="brand">
+                <img src="../images/akole_taluka_education_society_s_faculty_of_polytechnic_akole_logo.jpg"
+                    alt="Loknete Madhukarrao Pichad Polytechnic College Logo" class="brand-logo">
+                <span class="brand-text">
+                    <span class="brand-society">Akole Taluka Education Society's</span>
+                    <span class="brand-name-line">Loknete Madhukarrao Pichad</span>
+                    <span class="brand-name-line">Polytechnic College</span>
+                    <span class="brand-location">Akole · Dist. Ahmednagar, Maharashtra</span>
+                </span>
+            </a>
+            <nav>
+                <div class="nav-links" id="navLinks">
+                    <div class="nav-dropdown">
+                        <a href="#about" class="nav-dropdown-toggle">
+                            About
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" width="12" height="12">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <div class="dropdown-header">
+                                <span class="dropdown-eyebrow">Explore</span>
+                                <span class="dropdown-title">About Our Institution</span>
+                            </div>
+                            <div class="dropdown-grid">
+                                <a href="about_society.html" class="dropdown-item">
+                                    <span class="item-icon">🏛️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">About Society</span>
+                                        <span class="item-desc">Our founding trust &amp; legacy</span>
+                                    </span>
+                                </a>
+                                <a href="#about-institute" class="dropdown-item">
+                                    <span class="item-icon">🎓</span>
+                                    <span class="item-text">
+                                        <span class="item-title">About Institute</span>
+                                        <span class="item-desc">Our college &amp; programs</span>
+                                    </span>
+                                </a>
+                                <a href="#mission-vision" class="dropdown-item">
+                                    <span class="item-icon">🎯</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Mission &amp; Vision</span>
+                                        <span class="item-desc">What drives us forward</span>
+                                    </span>
+                                </a>
+                                <a href="#org-structure" class="dropdown-item">
+                                    <span class="item-icon">🗂️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Organization Structure</span>
+                                        <span class="item-desc">How we're organized</span>
+                                    </span>
+                                </a>
+                                <a href="#governing-body" class="dropdown-item">
+                                    <span class="item-icon">⚖️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Governing Body</span>
+                                        <span class="item-desc">Leadership &amp; oversight</span>
+                                    </span>
+                                </a>
+                                <a href="#lmc" class="dropdown-item">
+                                    <span class="item-icon">👥</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Local Management</span>
+                                        <span class="item-desc">Committee members</span>
+                                    </span>
+                                </a>
+                                <a href="#chairman-desk" class="dropdown-item">
+                                    <span class="item-icon">✍️</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Chairman's Desk</span>
+                                        <span class="item-desc">A message to students</span>
+                                    </span>
+                                </a>
+                                <a href="#principals-desk" class="dropdown-item">
+                                    <span class="item-icon">📋</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Principal's Desk</span>
+                                        <span class="item-desc">A message from leadership</span>
+                                    </span>
+                                </a>
+                                <a href="#admin-staff" class="dropdown-item">
+                                    <span class="item-icon">👤</span>
+                                    <span class="item-text">
+                                        <span class="item-title">Our Admin Staff</span>
+                                        <span class="item-desc">Meet the team</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#departments">Departments</a>
+                    <a href="#placement">T&amp;P Cell</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#admission">Admission</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#admission" class="btn btn-ghost mobile-only">Apply Now</a>
+                </div>
+                <a href="#admission" class="btn btn-ghost desktop-only">Apply Now</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+
+   <section class="society-content">
+  <div class="society-content-wrap">
+
+    <div class="society-image-col">
+      <div class="society-image-frame">
+        <img src="../images/About/About_Society.png" alt="Akole Taluka Education Society Campus">
+      </div>
+    </div>
+
+    <div class="society-text-col">
+      <span class="founder-eyebrow">Who We Are</span>
+      <h2 class="society-heading">About the Society</h2>
+
+      <p class="society-para">
+        Akole Taluka Education Society, Akole, Dist. Ahmednagar, Maharashtra state, is among the
+        pioneer education trusts established by Late Mr. Dadasaheb Rupwate and Honourable Mr.
+        Madhukarrao Pichad (Ex-Minister of State, Tribal Development, Maharashtra State) along with
+        hundreds of social workers in 1972.
+      </p>
+      <p class="society-para">
+        During 1971–1972, Maharashtra was undergoing a very dreadful famine, and millions of workers
+        were working on the Employment Guarantee Scheme for their daily bread all over the state.
+        Doorstep facilities of education are a very noble cause of social engineering, justice, and
+        equality. Leaders of all political parties in the region assembled here and bound together
+        to achieve optimal progress in education, especially in the rural area of Ahmednagar district,
+        Akole.
+      </p>
+      <p class="society-para">
+        An objective of ATES is to provide quality education in the field of Science, Art, Commerce,
+        Engineering, Computer Application, and Business, along with primary education from
+        kindergarten onwards. The facilities on this campus stand at international quality norms.
+        The campus offers courses in Management, Computer Applications, and Engineering faculties as
+        a doorstep action — not only for rural, semi-urban, and urban beneficiaries, but also for
+        international students.
+      </p>
+    </div>
+
+  </div>
+</section>
+    <section class="society-reach" id="reach">
+        <div class="society-reach-wrap">
+            <span class="founder-eyebrow">Our Reach</span>
+            <h2 class="reach-title">From Rural Roots to a Global Outlook</h2>
+            <p class="reach-subtitle">
+                Serving as a doorstep gateway to education for every kind of learner — wherever they come from.
+            </p>
+
+            <div class="reach-list">
+                <div class="reach-box">
+                    <div class="reach-num">01</div>
+                    <div class="reach-box-content">
+                        <h3>Rural</h3>
+                        <p>Bringing quality education directly to villages and remote communities of Akole taluka.</p>
+                    </div>
+                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="reach-box">
+                    <div class="reach-num">02</div>
+                    <div class="reach-box-content">
+                        <h3>Semi-Urban</h3>
+                        <p>Expanding access for students in growing towns across Ahmednagar district.</p>
+                    </div>
+                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="reach-box">
+                    <div class="reach-num">03</div>
+                    <div class="reach-box-content">
+                        <h3>Urban</h3>
+                        <p>Meeting the ambitions of students from cities seeking industry-relevant skills.</p>
+                    </div>
+                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="reach-box">
+                    <div class="reach-num">04</div>
+                    <div class="reach-box-content">
+                        <h3>International</h3>
+                        <p>Welcoming students from beyond India's borders to a campus built on global-standard
+                            facilities.</p>
+                    </div>
+                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <div class="brand" style="color:var(--paper); margin-bottom:14px;">
+                        <img src="../images/akole_taluka_education_society_s_faculty_of_polytechnic_akole_logo.jpg"
+                            alt="Akole Taluka Education Society Emblem" class="brand-mark">
+                        <span class="brand-text" style="font-size:13px; color:var(--paper);">Loknete Madhukarrao
+                            Pichad<br>Polytechnic College<span style="color:var(--gold);">Akole,
+                                Maharashtra</span></span>
+                    </div>
+                    <p style="font-size:12.5px; line-height:1.6; max-width:280px; opacity:0.7;">AICTE approved · MSBTE
+                        affiliated
+                        diploma engineering institute, established 1983.</p>
+                </div>
+                <div>
+                    <h4>Institute</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#placement">T&amp;P Cell</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Admission</h4>
+                    <ul>
+                        <li><a href="#admission">Admission Process</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">Scholarship Section</a></li>
+                        <li><a href="#">Rules &amp; Regulations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">MSBTE</a></li>
+                        <li><a href="#">AICTE</a></li>
+                        <li><a href="#">DTE Maharashtra</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span class="mono">&copy; 2026 Loknete Madhukarrao Pichad Polytechnic College, Akole</span>
+                <span class="mono">AICTE APPROVED · MSBTE AFFILIATED</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => io.observe(el));
+
+        const statNums = document.querySelectorAll('.stat-num');
+        const countIO = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count'), 10);
+                    const duration = 1500;
+                    const start = performance.now();
+                    function tick(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        el.textContent = Math.floor(eased * target).toLocaleString();
+                        if (p < 1) requestAnimationFrame(tick);
+                        else el.textContent = target.toLocaleString();
+                    }
+                    requestAnimationFrame(tick);
+                    countIO.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNums.forEach(el => countIO.observe(el));
+
+        function handleSubmit() {
+            document.getElementById('formNote').style.display = 'block';
+        }
+    </script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+    <script>
+        const slideEls = document.querySelectorAll('.slideshow .slide');
+        const dotsContainer = document.getElementById('slideDots');
+        const prevBtn = document.getElementById('slidePrev');
+        const nextBtn = document.getElementById('slideNext');
+        const currentLabel = document.getElementById('slideCurrent');
+        const totalLabel = document.getElementById('slideTotal');
+        const progressBar = document.getElementById('slideProgressBar');
+
+        let current = 0;
+        let timer;
+        const DURATION = 5000;
+
+        totalLabel.textContent = String(slideEls.length).padStart(2, '0');
+
+        slideEls.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => go(i));
+            dotsContainer.appendChild(dot);
+        });
+        const dotEls = document.querySelectorAll('.slide-dot');
+
+        function go(index) {
+            slideEls[current].classList.remove('active');
+            dotEls[current].classList.remove('active');
+
+            // restart kenburns animation on the image
+            const oldImg = slideEls[current].querySelector('.slide-img');
+            oldImg.style.animation = 'none';
+            void oldImg.offsetWidth;
+            oldImg.style.animation = '';
+
+            current = (index + slideEls.length) % slideEls.length;
+
+            slideEls[current].classList.add('active');
+            dotEls[current].classList.add('active');
+            currentLabel.textContent = String(current + 1).padStart(2, '0');
+
+            restartProgress();
+            restartAutoplay();
+        }
+
+        function next() { go(current + 1); }
+        function prev() { go(current - 1); }
+
+        function restartProgress() {
+            progressBar.classList.remove('animate');
+            void progressBar.offsetWidth;
+            progressBar.classList.add('animate');
+        }
+
+        function restartAutoplay() {
+            clearTimeout(timer);
+            timer = setTimeout(next, DURATION);
+        }
+
+        nextBtn.addEventListener('click', next);
+        prevBtn.addEventListener('click', prev);
+
+        restartProgress();
+        restartAutoplay();
+    </script>
+    <script>
+        const reachSection = document.querySelector('.society-reach');
+
+        const reachObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        if (reachSection) reachObserver.observe(reachSection);
+    </script>
+
+    <script>
+        const animatedSections = document.querySelectorAll('.society-hero, .society-content, .society-reach');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        animatedSections.forEach(el => sectionObserver.observe(el));
+    </script>
+
+
+</body>
+
+</html>

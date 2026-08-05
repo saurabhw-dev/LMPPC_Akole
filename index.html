@@ -40,7 +40,85 @@
       </a>
       <nav>
         <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
+          <div class="nav-dropdown">
+  <a href="#about" class="nav-dropdown-toggle">
+    About
+    <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" width="12" height="12">
+      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <div class="nav-dropdown-menu">
+    <div class="dropdown-header">
+      <span class="dropdown-eyebrow">Explore</span>
+      <span class="dropdown-title">About Our Institution</span>
+    </div>
+    <div class="dropdown-grid">
+     <a href="About/about_society.html" class="dropdown-item">
+        <span class="item-icon">🏛️</span>
+        <span class="item-text">
+          <span class="item-title">About Society</span>
+          <span class="item-desc">Our founding trust &amp; legacy</span>
+        </span>
+      </a>
+      <a href="#about-institute" class="dropdown-item">
+        <span class="item-icon">🎓</span>
+        <span class="item-text">
+          <span class="item-title">About Institute</span>
+          <span class="item-desc">Our college &amp; programs</span>
+        </span>
+      </a>
+      <a href="#mission-vision" class="dropdown-item">
+        <span class="item-icon">🎯</span>
+        <span class="item-text">
+          <span class="item-title">Mission &amp; Vision</span>
+          <span class="item-desc">What drives us forward</span>
+        </span>
+      </a>
+      <a href="#org-structure" class="dropdown-item">
+        <span class="item-icon">🗂️</span>
+        <span class="item-text">
+          <span class="item-title">Organization Structure</span>
+          <span class="item-desc">How we're organized</span>
+        </span>
+      </a>
+      <a href="#governing-body" class="dropdown-item">
+        <span class="item-icon">⚖️</span>
+        <span class="item-text">
+          <span class="item-title">Governing Body</span>
+          <span class="item-desc">Leadership &amp; oversight</span>
+        </span>
+      </a>
+      <a href="#lmc" class="dropdown-item">
+        <span class="item-icon">👥</span>
+        <span class="item-text">
+          <span class="item-title">Local Management</span>
+          <span class="item-desc">Committee members</span>
+        </span>
+      </a>
+      <a href="#chairman-desk" class="dropdown-item">
+        <span class="item-icon">✍️</span>
+        <span class="item-text">
+          <span class="item-title">Chairman's Desk</span>
+          <span class="item-desc">A message to students</span>
+        </span>
+      </a>
+      <a href="#principals-desk" class="dropdown-item">
+        <span class="item-icon">📋</span>
+        <span class="item-text">
+          <span class="item-title">Principal's Desk</span>
+          <span class="item-desc">A message from leadership</span>
+        </span>
+      </a>
+      <a href="#admin-staff" class="dropdown-item">
+        <span class="item-icon">👤</span>
+        <span class="item-text">
+          <span class="item-title">Our Admin Staff</span>
+          <span class="item-desc">Meet the team</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
           <a href="#departments">Departments</a>
           <a href="#placement">T&amp;P Cell</a>
           <a href="#gallery">Gallery</a>
@@ -708,10 +786,8 @@
       <div class="foot-grid">
         <div>
           <div class="brand" style="color:var(--paper); margin-bottom:14px;">
-            <svg class="brand-mark" viewBox="0 0 46 46" fill="none">
-              <circle cx="23" cy="23" r="21" stroke="#BF9B5E" stroke-width="1" />
-              <circle cx="23" cy="23" r="6.5" fill="#1C1B15" stroke="#BF9B5E" stroke-width="1" />
-            </svg>
+            <img src="images/akole_taluka_education_society_s_faculty_of_polytechnic_akole_logo.jpg"
+              alt="Akole Taluka Education Society Emblem" class="brand-mark">
             <span class="brand-text" style="font-size:13px; color:var(--paper);">Loknete Madhukarrao
               Pichad<br>Polytechnic College<span style="color:var(--gold);">Akole, Maharashtra</span></span>
           </div>
@@ -888,32 +964,43 @@
     revealSections.forEach(section => observer.observe(section));
   </script>
   <script>
-  const heroEl = document.querySelector('.hero');
-  const sealFadeEls = document.querySelectorAll('.seal-fade');
+    const heroEl = document.querySelector('.hero');
+    const sealFadeEls = document.querySelectorAll('.seal-fade');
 
-  const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
 
-        // restart the seal's fade-in animations each time it comes into view
-        sealFadeEls.forEach(el => {
-          el.style.animation = 'none';
-          void el.offsetWidth; // force reflow
-          el.style.animation = '';
-        });
-      } else {
-        entry.target.classList.remove('in-view');
-      }
+          // restart the seal's fade-in animations each time it comes into view
+          sealFadeEls.forEach(el => {
+            el.style.animation = 'none';
+            void el.offsetWidth; // force reflow
+            el.style.animation = '';
+          });
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
     });
-  }, {
-    threshold: 0.2,
-    rootMargin: '0px 0px -50px 0px'
+
+    if (heroEl) heroObserver.observe(heroEl);
+  </script>
+
+<script>
+  const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+  const dropdownParent = document.querySelector('.nav-dropdown');
+
+  dropdownToggle.addEventListener('click', (e) => {
+    if (window.innerWidth <= 920) {
+      e.preventDefault();
+      dropdownParent.classList.toggle('open');
+    }
   });
-
-  if (heroEl) heroObserver.observe(heroEl);
 </script>
-
 </body>
 
 </html>
