@@ -1177,6 +1177,65 @@ nav a:hover {
   background: var(--paper);
   padding: 80px 0 90px;
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* Text column elements — hidden by default, revealed with stagger */
+.hero .eyebrow,
+.hero h1,
+.hero p.lede,
+.hero .hero-actions,
+.hero .hero-meta {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero .eyebrow      { transition-delay: 0.1s; }
+.hero h1             { transition-delay: 0.25s; }
+.hero p.lede         { transition-delay: 0.4s; }
+.hero .hero-actions  { transition-delay: 0.55s; }
+.hero .hero-meta     { transition-delay: 0.7s; }
+
+/* Seal column — scale + fade in */
+.hero-seal-wrap {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0.3s;
+}
+
+/* When JS adds .in-view to .hero, everything animates to its resting state */
+.hero.in-view .eyebrow,
+.hero.in-view h1,
+.hero.in-view p.lede,
+.hero.in-view .hero-actions,
+.hero.in-view .hero-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero.in-view .hero-seal-wrap {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width:960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-seal-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
 }
 
 .hero-grid {

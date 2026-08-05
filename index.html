@@ -270,9 +270,10 @@
       <div>
         <div class="eyebrow">Diploma Engineering · Since 1983</div>
         <h1>Building diploma engineers for <em>real</em> industry, from day one.</h1>
-        <p class="lede">Approved by AICTE and affiliated to MSBTE, our institute has trained diploma engineers across
-          Civil, Computer, E&amp;TC, and Mechanical Engineering for over four decades, with dedicated placement support
-          through our Training &amp; Placement Cell.</p>
+        <p class="lede">Approved by AICTE and affiliated to MSBTE, our institute has trained diploma
+          engineers across Civil, Computer, E&amp;TC, and Mechanical Engineering since 2014, backed by the
+          Akole Taluka Education Society's legacy of educational service since 1971, with dedicated
+          placement support through our Training &amp; Placement Cell.</p>
         <div class="hero-actions">
           <a href="#admission" class="btn btn-solid">Apply for Admission</a>
           <a href="#departments" class="btn btn-ghost">View Departments</a>
@@ -755,8 +756,8 @@
   <script>
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {if (e.isIntersecting) {e.target.classList.add('in'); io.unobserve(e.target);} });
-    }, {threshold: 0.15});
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
     revealEls.forEach(el => io.observe(el));
 
     const statNums = document.querySelectorAll('.stat-num');
@@ -778,7 +779,7 @@
           countIO.unobserve(el);
         }
       });
-    }, {threshold: 0.5});
+    }, { threshold: 0.5 });
     statNums.forEach(el => countIO.observe(el));
 
     function handleSubmit() {
@@ -848,8 +849,8 @@
       restartAutoplay();
     }
 
-    function next() {go(current + 1);}
-    function prev() {go(current - 1);}
+    function next() { go(current + 1); }
+    function prev() { go(current - 1); }
 
     function restartProgress() {
       progressBar.classList.remove('animate');
@@ -869,22 +870,48 @@
     restartAutoplay();
   </script>
   <script>
-  const revealSections = document.querySelectorAll('.founder-section');
+    const revealSections = document.querySelectorAll('.founder-section');
 
-  const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');   // remove when scrolled out — re-triggers animation on re-entry
+        }
+      });
+    }, {
+      threshold: 0.2,        // triggers when 20% of the section is visible
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealSections.forEach(section => observer.observe(section));
+  </script>
+  <script>
+  const heroEl = document.querySelector('.hero');
+  const sealFadeEls = document.querySelectorAll('.seal-fade');
+
+  const heroObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
+
+        // restart the seal's fade-in animations each time it comes into view
+        sealFadeEls.forEach(el => {
+          el.style.animation = 'none';
+          void el.offsetWidth; // force reflow
+          el.style.animation = '';
+        });
       } else {
-        entry.target.classList.remove('in-view');   // remove when scrolled out — re-triggers animation on re-entry
+        entry.target.classList.remove('in-view');
       }
     });
   }, {
-    threshold: 0.2,        // triggers when 20% of the section is visible
+    threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
   });
 
-  revealSections.forEach(section => observer.observe(section));
+  if (heroEl) heroObserver.observe(heroEl);
 </script>
 
 </body>
