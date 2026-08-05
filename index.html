@@ -179,28 +179,27 @@
         </div>
         <div class="founder-badges">
           <div class="founder-badge">
-  <span class="badge-label">Founder</span>
-  <span class="badge-value">Akole Taluka Education Society,<br>Loknete Pichad Polytechnic College</span>
-</div>
+            <span class="badge-label">Founder</span>
+            <span class="badge-value">Akole Taluka Education Society,<br>Loknete Pichad Polytechnic College</span>
+          </div>
         </div>
       </div>
 
       <!-- RIGHT: Info -->
       <div class="founder-info-col">
         <span class="founder-eyebrow">Meet Our Founder</span>
-        <h2 class="founder-name">Loknete Madhukarrao Pichad</h2>
+        <h2 class="founder-name">LOKNETE MADHUKARRAO PICHAD</h2>
         <span class="founder-title">Founder, Akole Taluka Education Society</span>
 
         <blockquote class="founder-quote">
-          "True education is not just about degrees — it is about building character, skill, and the courage to serve
-          society."
+          "True progress for our tribal and rural communities lies in the twin pillars of education and self-reliance."
         </blockquote>
 
         <p class="founder-bio">
-          A visionary leader and dedicated public servant, Loknete Madhukarrao Pichad laid the foundation
-          for quality technical education in Akole taluka. Under his mentorship, the Akole Taluka Education
-          Society has grown into a trusted name in the region, committed to academic excellence and
-          industry-ready diploma engineers.
+          Loknete Madhukarrao Pichad (1941–2024) was a distinguished statesman who represented Akole in the
+          Maharashtra Legislative Assembly for seven terms and served as Cabinet Minister for Tribal
+          Development. A lifelong champion of rural upliftment, he founded the Akole Taluka Education Society
+          to bring quality technical education to the youth of this region.
         </p>
         <div class="founder-cta">
           <a href="#about" class="founder-btn-primary">
@@ -210,6 +209,56 @@
                 stroke-linejoin="round" />
             </svg>
           </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SON / SUCCESSOR SECTION -->
+  <section class="founder-section founder-section-reverse" id="successor">
+    <div class="founder-wrap founder-wrap-reverse">
+
+      <!-- LEFT: Info -->
+      <div class="founder-info-col">
+        <span class="founder-eyebrow">Carrying the Legacy Forward</span>
+        <h2 class="founder-name">VAIBHAV PICHAD</h2>
+        <span class="founder-title">President, Akole Taluka Education Society</span>
+
+        <blockquote class="founder-quote">
+          "Our responsibility is to build on this foundation — bringing new opportunities to the youth of Akole while
+          staying rooted in the values my father established."
+        </blockquote>
+
+        <p class="founder-bio">
+          Vaibhav Madhukar Pichad continues his family's legacy of public service, having represented Akole
+          in the Maharashtra Legislative Assembly and currently serving as National Minister of the BJP
+          Scheduled Tribes Morcha. A key figure in the region's cooperative movement, he chairs the Amrutsagar
+          Milk Co-Operative Union and remains deeply committed to advancing education and opportunity for
+          the youth of Akole taluka.
+        </p>
+
+        <div class="founder-cta">
+          <a href="#about" class="founder-btn-primary">
+            <span>Learn More About Us</span>
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Framed Image -->
+      <div class="founder-image-col">
+        <div class="founder-image-frame">
+          <img src="images/vaibhav_pichad_saheb_image.jpg" alt="Vaibhav Pichad">
+        </div>
+        <div class="founder-badges founder-badges-right">
+          <div class="founder-badge">
+            <span class="badge-label">President</span>
+            <span class="badge-value">Akole Taluka Education Society</span>
+          </div>
         </div>
       </div>
 
@@ -819,6 +868,24 @@
     restartProgress();
     restartAutoplay();
   </script>
+  <script>
+  const revealSections = document.querySelectorAll('.founder-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');   // remove when scrolled out — re-triggers animation on re-entry
+      }
+    });
+  }, {
+    threshold: 0.2,        // triggers when 20% of the section is visible
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealSections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 
