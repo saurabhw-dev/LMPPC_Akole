@@ -11,357 +11,311 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/homepage.css">
     <style>
-        /* SOCIETY HERO */
-        .society-hero {
-            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
-            padding: 70px 60px;
-            text-align: center;
-        }
-
-        .society-hero-wrap {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .society-title {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 38px;
-            font-weight: 800;
-            color: #fff;
-            margin: 12px 0 10px;
-            line-height: 1.25;
-        }
-
-        .society-subtitle {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: 400;
-        }
-
-        /* SOCIETY CONTENT */
-        .society-content {
+        .page-hero {
             background: var(--paper);
-            padding: 70px 60px;
+            padding: 54px 60px;
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
         }
 
-        .society-content-wrap {
+        .page-hero-wrap {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 60px;
-            align-items: start;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
         }
 
-        /* SOCIETY CONTENT — entry animation */
-        .society-content-wrap-full>* {
+        .page-hero-left {
             opacity: 0;
-            transform: translateY(24px);
+            transform: translateX(-24px);
             transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .society-content-wrap-full .founder-eyebrow {
-            transition-delay: 0.05s;
-        }
-
-        .society-content-wrap-full .society-heading {
-            transition-delay: 0.18s;
-        }
-
-        .society-content-wrap-full .society-para:nth-of-type(1) {
-            transition-delay: 0.32s;
-        }
-
-        .society-content-wrap-full .society-para:nth-of-type(2) {
-            transition-delay: 0.46s;
-        }
-
-        .society-content-wrap-full .society-para:nth-of-type(3) {
-            transition-delay: 0.6s;
-        }
-
-        .society-content.in-view .society-content-wrap-full>* {
+        .page-hero.in-view .page-hero-left {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
 
-        .society-image-frame {
+        .page-hero-eyebrow {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .page-hero-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: #1F4D3D;
+            line-height: 1.15;
+        }
+
+        .page-hero-title span {
+            color: #BF9B5E;
+            font-style: italic;
+        }
+
+        .page-hero-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateX(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+        }
+
+        .page-hero.in-view .page-hero-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .page-hero-line {
+            width: 90px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #BF9B5E);
+        }
+
+        .page-hero-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #8a8a8a;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 700px) {
+            .page-hero {
+                padding: 34px 22px;
+            }
+
+            .page-hero-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .page-hero-title {
+                font-size: 24px;
+            }
+
+            .page-hero-right {
+                align-self: flex-start;
+            }
+        }
+
+        /* heading end */
+        /* DESK SECTIONS — Chairman / Secretary */
+        .desk-section {
+            background: var(--paper);
+            padding: 60px 60px;
+        }
+
+        .desk-section-reverse {
+            background: #f6f2e9;
+        }
+
+        .desk-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .desk-wrap-reverse {
+            grid-template-columns: 1.25fr 0.75fr;
+        }
+
+        .desk-wrap-reverse .desk-text-col {
+            order: 1;
+        }
+
+        .desk-wrap-reverse .desk-image-col {
+            order: 2;
+        }
+
+        /* Image column */
+        .desk-image-frame {
+            position: relative;
             border-radius: 14px;
             overflow: hidden;
-            aspect-ratio: 4 / 5;
+            aspect-ratio: 4 / 3.9;
             border: 6px solid #fff;
             outline: 1px solid var(--line);
-            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.13);
         }
 
-        .society-image-frame img {
+        .desk-image-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center top;
             display: block;
         }
 
-        .society-heading {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 30px;
-            font-weight: 800;
-            color: #1F4D3D;
-            line-height: 1.25;
-            margin: 10px 0 22px;
+        .desk-badge {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px 16px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid #1F4D3D;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            max-width: 240px;
+            margin-top: -32px;
+            margin-left: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        .society-para {
-            font-size: 15px;
-            line-height: 1.85;
-            color: #444;
+        .desk-badge-right {
+            margin-left: auto;
+            margin-right: 20px;
+            border-left: none;
+            border-right: 3px solid #1F4D3D;
+            text-align: right;
+        }
+
+        .badge-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            color: var(--maroon);
+        }
+
+        .badge-value {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1F4D3D;
+            line-height: 1.35;
+        }
+
+        /* Text column */
+        .desk-name {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 27px;
+            font-weight: 800;
+            color: #1F4D3D;
+            line-height: 1.28;
+            margin: 8px 0 6px;
+        }
+
+        .desk-title {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #7a7a7a;
             margin-bottom: 20px;
+        }
+
+        .desk-para {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 16px;
             text-align: justify;
             text-justify: inter-word;
         }
 
-        /* PROGRAMS / REACH STRIP */
-        .society-reach {
-            background: var(--paper);
-            padding: 80px 60px;
-            border-top: 1px solid var(--line);
-        }
-
-        .society-reach-wrap {
-            max-width: 950px;
-            margin: 0 auto;
-        }
-
-        .reach-title {
-            font-family: Georgia, serif;
-            font-size: 30px;
-            font-weight: 800;
-            color: #1F4D3D;
-            margin: 10px 0 12px;
-        }
-
-        .reach-subtitle {
-            font-size: 14.5px;
-            color: #6b6b6b;
-            max-width: 600px;
-            margin: 0 0 44px;
-        }
-
-        .reach-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .reach-box {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 28px 32px;
-            overflow: hidden;
+        /* Entry animations */
+        .desk-image-col {
             opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            transform: translateX(-35px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .society-reach.in-view .reach-box {
-            opacity: 1;
-            transform: translateX(0);
+        .desk-image-col {
+            position: sticky;
+            top: 120px;
+            align-self: start;
         }
 
-        .reach-list .reach-box:nth-child(1) {
-            transition-delay: 0.05s;
+        .desk-wrap-reverse .desk-image-col {
+            transform: translateX(35px);
         }
 
-        .reach-list .reach-box:nth-child(2) {
-            transition-delay: 0.18s;
-        }
-
-        .reach-list .reach-box:nth-child(3) {
-            transition-delay: 0.31s;
-        }
-
-        .reach-list .reach-box:nth-child(4) {
-            transition-delay: 0.44s;
-        }
-
-        .reach-box:hover {
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
-            border-color: #E8C97A;
-        }
-
-        .reach-box::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #E8C97A, #C9971F);
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .reach-box:hover::before {
-            transform: scaleY(1);
-        }
-
-        .reach-num {
-            font-family: Georgia, serif;
-            font-size: 32px;
-            font-weight: 800;
-            color: #EDE6D2;
-            flex-shrink: 0;
-            width: 60px;
-            transition: color 0.3s ease;
-        }
-
-        .reach-box:hover .reach-num {
-            color: #E8C97A;
-        }
-
-        .reach-box-content {
-            flex: 1;
-        }
-
-        .reach-box-content h3 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1F4D3D;
-            margin-bottom: 4px;
-        }
-
-        .reach-box-content p {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: #6b6b6b;
-        }
-
-        .reach-box-icon {
-            width: 20px;
-            height: 20px;
-            color: #c9c4b3;
-            flex-shrink: 0;
-            transform: translateX(-6px);
-            opacity: 0;
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, color 0.3s ease;
-        }
-
-        .reach-box:hover .reach-box-icon {
-            transform: translateX(0);
-            opacity: 1;
-            color: #1F4D3D;
-        }
-
-        /* HERITAGE SECTION */
-        .heritage-section {
-            background: #f6f2e9;
-            padding: 70px 60px;
-        }
-
-        /* HERITAGE SECTION — entry animation */
-        .heritage-wrap>* {
+        .desk-text-col>* {
             opacity: 0;
             transform: translateY(24px);
             transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .heritage-wrap .founder-eyebrow {
-            transition-delay: 0.05s;
+        .desk-text-col .founder-eyebrow {
+            transition-delay: 0.1s;
         }
 
-        .heritage-wrap .heritage-title {
-            transition-delay: 0.2s;
+        .desk-text-col .desk-name {
+            transition-delay: 0.22s;
         }
 
-        .heritage-wrap .heritage-para {
-            transition-delay: 0.35s;
+        .desk-text-col .desk-title {
+            transition-delay: 0.34s;
         }
 
-        .heritage-section.in-view .heritage-wrap>* {
+        .desk-text-col .desk-para:nth-of-type(1) {
+            transition-delay: 0.46s;
+        }
+
+        .desk-text-col .desk-para:nth-of-type(2) {
+            transition-delay: 0.58s;
+        }
+
+        .desk-text-col .desk-para:nth-of-type(3) {
+            transition-delay: 0.7s;
+        }
+
+        .desk-section.in-view .desk-image-col {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .desk-section.in-view .desk-text-col>* {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .heritage-wrap {
-            max-width: 780px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .heritage-title {
-            font-family: Georgia, serif;
-            font-size: 26px;
-            font-weight: 800;
-            color: #1F4D3D;
-            margin: 10px 0 20px;
-        }
-
-        .heritage-para {
-            font-size: 14.5px;
-            line-height: 1.85;
-            color: #555;
-            text-align: justify;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 960px) {
-            .society-hero {
-                padding: 50px 24px;
+            .desk-section {
+                padding: 44px 24px;
             }
 
-            .society-title {
-                font-size: 27px;
-            }
-
-            .society-content {
-                padding: 50px 24px;
-            }
-
-            .society-content-wrap {
+            .desk-wrap,
+            .desk-wrap-reverse {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 28px;
             }
 
-            .society-image-frame {
-                max-width: 340px;
+            .desk-wrap-reverse .desk-text-col,
+            .desk-wrap-reverse .desk-image-col {
+                order: unset;
+            }
+
+            .desk-image-frame {
+                max-width: 300px;
                 margin: 0 auto;
             }
 
-            .society-heading {
-                font-size: 24px;
-                margin: 8px 0 18px;
+            .desk-badge,
+            .desk-badge-right {
+                margin: -26px auto 0;
+                text-align: left;
+                border-left: 3px solid #1F4D3D;
+                border-right: none;
             }
 
-            .society-reach {
-                padding: 50px 24px;
-            }
-
-            .reach-title {
-                font-size: 23px;
-            }
-
-            .reach-box {
-                padding: 20px 20px;
-                gap: 16px;
-            }
-
-            .reach-num {
-                font-size: 24px;
-                width: 40px;
-            }
-
-            .reach-box-icon {
-                display: none;
-            }
-
-            .heritage-section {
-                padding: 44px 20px;
+            .desk-name {
+                font-size: 21px;
             }
         }
     </style>
@@ -492,122 +446,114 @@
         </div>
     </header>
 
-
-    <section class="society-content">
-        <div class="society-content-wrap-full">
-            <span class="founder-eyebrow">Who We Are</span>
-            <h2 class="society-heading">About the Institute</h2>
-
-            <p class="society-para">
-                Engineering diploma education has always been an important driving force behind the
-                technological innovations for a country's development, growth, and prosperity. Faculty of
-                Polytechnic, Akole is a private, self-financed institution established by the Akole Taluka
-                Education Society (ATES), Dist. Ahmednagar, Maharashtra state, in the year 2014.
-            </p>
-            <p class="society-para">
-                The trust ATES was established in 1971–72 under the dynamic and visionary leadership of
-                Late Mr. Dadasaheb Rupwate and Honourable Mr. Madhukarrao Pichad (Ex-Minister of State,
-                Tribal Development, Maharashtra State), with an objective of providing quality education in
-                the fields of Art, Commerce, Engineering, Computer Application, Business, and primary
-                education from kindergarten onwards. FOP, Akole is located 1.5 kms away from Akole bus stand.
-            </p>
-            <p class="society-para">
-                FOP, Akole works with a vision to achieve excellence in education, research, and service to
-                industry, and to develop in students a sense of moral duty and responsibility toward society
-                through various co-curricular and social activities.
-            </p>
+    <!--<section class="society-hero">
+        <div class="society-hero-wrap">
+            <span class="founder-eyebrow">Leadership &amp; Oversight</span>
+            <h1 class="society-title">Governing Body</h1>
+            <p class="society-subtitle">The members entrusted with guiding our institution's growth and governance</p>
         </div>
-    </section>
+    </section>-->
 
-    <!-- PROGRAMS HIGHLIGHT STRIP -->
-    <section class="society-reach" id="programs">
-        <div class="society-reach-wrap">
-            <span class="founder-eyebrow">Our Programs</span>
-            <h2 class="reach-title">Four Diploma Programs, One Shared Vision</h2>
-            <p class="reach-subtitle">
-                Three-year engineering diploma programmes, approved by AICTE and affiliated to MSBTE, Mumbai —
-                with a total annual intake of 300 students.
-            </p>
 
-            <div class="reach-list">
-                <div class="reach-box">
-                    <div class="reach-num">01</div>
-                    <div class="reach-box-content">
-                        <h3>Mechanical Engineering</h3>
-                        <p>Building strong fundamentals in design, manufacturing, and industrial systems.</p>
-                    </div>
-                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
 
-                <div class="reach-box">
-                    <div class="reach-num">02</div>
-                    <div class="reach-box-content">
-                        <h3>Electronics &amp; Telecommunication Engineering</h3>
-                        <p>Preparing students for the evolving world of electronics and communication technology.</p>
-                    </div>
-                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
-
-                <div class="reach-box">
-                    <div class="reach-num">03</div>
-                    <div class="reach-box-content">
-                        <h3>Computer Engineering</h3>
-                        <p>Equipping students with strong programming, systems, and software development skills.</p>
-                    </div>
-                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
-
-                <div class="reach-box">
-                    <div class="reach-num">04</div>
-                    <div class="reach-box-content">
-                        <h3>Civil Engineering</h3>
-                        <p>Training future engineers in construction, infrastructure, and structural design.</p>
-                    </div>
-                    <svg class="reach-box-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
+    <section class="page-hero">
+        <div class="page-hero-wrap">
+            <div class="page-hero-left">
+                <span class="page-hero-eyebrow">About Our Institution</span>
+                <h1 class="page-hero-title">Principal's <span>Desk</span></h1>
+            </div>
+            <div class="page-hero-right">
+                <div class="page-hero-line"></div>
+                <span class="page-hero-tag">FOP · Akole</span>
             </div>
         </div>
     </section>
 
-    <!-- CULTURAL HERITAGE NOTE -->
-    <section class="heritage-section">
-        <div class="heritage-wrap">
-            <span class="founder-eyebrow">A Note of Heritage</span>
-            <h2 class="heritage-title">The Legacy of Lord Agasti</h2>
-            <p class="heritage-para">
-                We would like to make a humble note of our richest cultural heritage — that of Lord Agasti.
-                He is remembered as the first Arya to cross the Vindhya mountain ranges and settle at this very
-                place, where a famous temple of Lord Agasti stands today on the banks of the river Pravara.
-                Agasti was the pioneer grammarian of the Tamil language and a social revolutionary whose marriage
-                to Lopamudra is regarded as the first inter-caste marriage. It is in keeping with this tradition
-                that we welcome you all to our campus.
-            </p>
+    <!-- PRINCIPAL DESK -->
+    <section class="desk-section" id="principal-desk">
+        <div class="desk-wrap">
+
+            <div class="desk-image-col">
+                <div class="desk-image-frame">
+                    <img src="../images/About/principal_photo.png" alt="Dr. R. D. Palhade">
+                </div>
+
+                <div class="desk-badge">
+                    <span class="badge-label">Principal</span>
+                    <span class="badge-value">
+                        Loknete Madhukarrao Pichad Polytechnic College, Akole
+                    </span>
+                </div>
+            </div>
+
+            <div class="desk-text-col">
+
+                <span class="founder-eyebrow">Principal's Desk</span>
+
+                <h2 class="desk-name">
+                    Dr. R. D. Palhade
+                </h2>
+
+                <span class="desk-title">
+                    Principal, Loknete Madhukarrao Pichad Polytechnic College, Akole
+                </span>
+
+                <p class="desk-para">
+                    Dear Students, Parents &amp; All Stakeholders,
+                </p>
+
+                <p class="desk-para">
+                    It gives me immense pleasure to welcome you to this virtual tour of Akole Taluka Education Society's
+                    Faculty of Polytechnic, Akole. Our institution is a place where students always come first. As an
+                    educational service provider, we are committed to making every student's learning journey
+                    comfortable, meaningful, and skill-oriented. We do not simply teach courses differently from
+                    others—we believe in delivering education through innovative teaching methods that inspire
+                    creativity, confidence, and practical knowledge.
+                </p>
+
+                <p class="desk-para">
+                    As the Principal, my unwavering goal is to establish this institute as one of the finest diploma
+                    engineering colleges, recognized for academic excellence and holistic personality development. Being
+                    an engineer by training and a teacher by profession, I understand the responsibility of transforming
+                    young aspirants into competent diploma engineers. With more than two and a half decades of
+                    experience in engineering education, I am committed to guiding students toward professional success
+                    through quality education and ethical values.
+                </p>
+
+                <p class="desk-para">
+                    Our mission is to impart qualitative technical education at an affordable cost, especially for
+                    students from rural areas, while nurturing them into competent, efficient, trustworthy, and socially
+                    responsible engineers. We strive to develop technical expertise alongside discipline, integrity,
+                    leadership, and a strong sense of responsibility towards society, the state, and the nation.
+                </p>
+
+                <p class="desk-para">
+                    We envision our institute as a center of excellence in education, research, innovation, and industry
+                    collaboration. Through our highly qualified, dedicated, and experienced faculty members, we
+                    encourage students to actively participate in co-curricular, extracurricular, and social activities
+                    that enhance their overall personality. Our focus remains on providing students with opportunities
+                    to grow academically, professionally, and personally while promoting research and technological
+                    development.
+                </p>
+
+                <p class="desk-para">
+                    At ATES's Faculty of Polytechnic, we believe that a diploma is more than just a qualification—it is
+                    a gateway to countless opportunities. The management, faculty, supporting staff, and students work
+                    together with dedication to create an environment that nurtures innovation, leadership, and lifelong
+                    learning. We remain committed to producing well-rounded diploma engineers who can contribute
+                    meaningfully to the advancement of engineering, technology, and society.
+                </p>
+
+                <p class="desk-para">
+                    I warmly invite you to visit our campus and experience the difference created by our vibrant
+                    academic environment and the new generation of budding technocrats. I wish each one of you a bright
+                    future and every success in your journey towards becoming a proud Diploma Engineer.
+                </p>
+
+            </div>
+
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
     <footer>
         <div class="wrap">
@@ -712,22 +658,20 @@
             });
         });
     </script>
-
     <script>
-        const animatedSections = document.querySelectorAll('.society-hero, .society-content, .society-reach, .heritage-section');
-
+        const animatedSections = document.querySelectorAll('.page-hero, .desk-section');
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                } else {
-                    entry.target.classList.remove('in-view');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+                else entry.target.classList.remove('in-view');
             });
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
         animatedSections.forEach(el => sectionObserver.observe(el));
     </script>
+
+
+
+
 
 </body>
 
