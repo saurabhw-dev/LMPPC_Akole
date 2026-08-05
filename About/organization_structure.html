@@ -105,6 +105,140 @@
                 font-size: 27px;
             }
         }
+
+        .gov-hero {
+            background: var(--paper);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .gov-hero-wrap {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .gov-hero.in-view .gov-hero-wrap {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gov-hero-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: #1F4D3D;
+        }
+
+        @media (max-width: 700px) {
+            .gov-hero {
+                padding: 30px 20px;
+            }
+
+            .gov-hero-title {
+                font-size: 22px;
+            }
+        }
+
+        .page-hero {
+            background: var(--paper);
+            padding: 54px 60px;
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+        }
+
+        .page-hero-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .page-hero-left {
+            opacity: 0;
+            transform: translateX(-24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .page-hero.in-view .page-hero-left {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .page-hero-eyebrow {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .page-hero-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: #1F4D3D;
+            line-height: 1.15;
+        }
+
+        .page-hero-title span {
+            color: #BF9B5E;
+            font-style: italic;
+        }
+
+        .page-hero-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateX(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+        }
+
+        .page-hero.in-view .page-hero-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .page-hero-line {
+            width: 90px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #BF9B5E);
+        }
+
+        .page-hero-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #8a8a8a;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 700px) {
+            .page-hero {
+                padding: 34px 22px;
+            }
+
+            .page-hero-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .page-hero-title {
+                font-size: 24px;
+            }
+
+            .page-hero-right {
+                align-self: flex-start;
+            }
+        }
     </style>
 
 </head>
@@ -179,21 +313,21 @@
                                         <span class="item-desc">How we're organized</span>
                                     </span>
                                 </a>
-                                <a href="#governing-body" class="dropdown-item">
+                                <a href="about_governing_body.html" class="dropdown-item">
                                     <span class="item-icon">⚖️</span>
                                     <span class="item-text">
                                         <span class="item-title">Governing Body</span>
                                         <span class="item-desc">Leadership &amp; oversight</span>
                                     </span>
                                 </a>
-                                <a href="#lmc" class="dropdown-item">
+                                <a href="about_local_mgmt_committee.html" class="dropdown-item">
                                     <span class="item-icon">👥</span>
                                     <span class="item-text">
                                         <span class="item-title">Local Management</span>
                                         <span class="item-desc">Committee members</span>
                                     </span>
                                 </a>
-                                <a href="#chairman-desk" class="dropdown-item">
+                                <a href="about_chairman_Desk.html" class="dropdown-item">
                                     <span class="item-icon">✍️</span>
                                     <span class="item-text">
                                         <span class="item-title">Chairman's Desk</span>
@@ -242,6 +376,19 @@
             <p class="society-subtitle">Our institute's reporting hierarchy, from leadership to every department</p>
         </div>
     </section>-->
+
+    <section class="page-hero">
+        <div class="page-hero-wrap">
+            <div class="page-hero-left">
+                <span class="page-hero-eyebrow">About Our Institution</span>
+                <h1 class="page-hero-title">Organization <span>Structure</span></h1>
+            </div>
+            <div class="page-hero-right">
+                <div class="page-hero-line"></div>
+                <span class="page-hero-tag">FOP · Akole</span>
+            </div>
+        </div>
+    </section>
 
     <section class="org-structure-section">
         <div class="org-structure-wrap">
@@ -368,7 +515,7 @@
         });
     </script>
     <script>
-        const animatedSections = document.querySelectorAll('.society-hero, .org-structure-section');
+        const animatedSections = document.querySelectorAll('.page-hero, .org-structure-section');
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('in-view');
@@ -377,6 +524,7 @@
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
         animatedSections.forEach(el => sectionObserver.observe(el));
     </script>
+
 
 
 
