@@ -338,6 +338,150 @@
         .admit-link:hover {
             color: var(--maroon);
         }
+
+        /* PDF Download Card */
+        .pdf-download-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-decoration: none;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pdf-download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(31, 77, 61, 0.12);
+            border-color: #E8C97A;
+        }
+
+        .pdf-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            background: rgba(200, 60, 50, 0.1);
+            color: #c8453c;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pdf-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .pdf-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pdf-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #1F4D3D;
+            line-height: 1.4;
+        }
+
+        .pdf-sub {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .pdf-arrow {
+            width: 18px;
+            height: 18px;
+            color: #999;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .pdf-download-card:hover .pdf-arrow {
+            transform: translateY(3px);
+            color: #1F4D3D;
+        }
+
+        /* Core Values grid */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .value-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 22px 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .value-card h3 {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1F4D3D;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Bullet list (simpler, non-numbered) for long guideline lists */
+        .admit-bullet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .admit-bullet-list li {
+            position: relative;
+            padding-left: 22px;
+            font-size: 14px;
+            line-height: 1.75;
+            color: #444;
+            text-align: justify;
+        }
+
+        .admit-bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #E8C97A;
+        }
+
+        .admit-subheading {
+            font-family: Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1F4D3D;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 700px) {
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pdf-download-card {
+                flex-wrap: wrap;
+            }
+        }
     </style>
 
 </head>
@@ -355,7 +499,7 @@
         </div>
     </div>
 
-   <header id="siteHeader">
+    <header id="siteHeader">
         <div class="wrap">
             <a href="#" class="brand">
                 <img src="../images/akole_taluka_education_society_s_faculty_of_polytechnic_akole_logo.jpg"
@@ -575,12 +719,11 @@
     </section>-->
 
 
-
     <section class="page-hero">
         <div class="page-hero-wrap">
             <div class="page-hero-left">
                 <span class="page-hero-eyebrow">Admission</span>
-                <h1 class="page-hero-title">Direct Second Year <span>Polytechnic</span></h1>
+                <h1 class="page-hero-title">Rules &amp; <span>Regulations</span></h1>
             </div>
             <div class="page-hero-right">
                 <div class="page-hero-line"></div>
@@ -589,74 +732,245 @@
         </div>
     </section>
 
-    <!-- ELIGIBILITY -->
-    <section class="admit-section" id="eligibility">
+    <!-- PDF DOWNLOAD -->
+    <section class="admit-section" id="pdf-download">
         <div class="admit-wrap">
-            <span class="founder-eyebrow">Requirements</span>
-            <h2 class="admit-heading">Eligibility Criteria for Direct 2nd Year</h2>
-
-            <div class="admit-eligibility-card">
-                <p class="admit-para">
-                    HSC (12th) Pass with Science / Technical / Vocational / MCVC / I.T.I. / CoE (60% Marks)
-                </p>
-                <div class="admit-or">OR</div>
-                <p class="admit-para">
-                    I.T.I. / MCVC / CoE Passed with a minimum of 60% Marks
-                </p>
-            </div>
-
-            <p class="admit-para" style="margin-top: 22px;">
-                Candidates are advised to follow the rules for admission to the Second Year Polytechnic
-                course as published by the
-                <a href="http://www.dte.org.in/" target="_blank" rel="noopener noreferrer"
-                    class="admit-link">Directorate of Technical Education, Maharashtra State</a>
-                from time to time.
-            </p>
+            <a href="../PDF'S/Rules_Regulations_for_Admission_in_Polytechnic_courses.pdf" target="_blank"
+                rel="noopener noreferrer" class="pdf-download-card">
+                <div class="pdf-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor"
+                            stroke-width="1.8" stroke-linejoin="round" />
+                        <path d="M14 2v6h6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="pdf-info">
+                    <span class="pdf-title">Rules for Admission Process in Polytechnic Courses (2017-18)</span>
+                    <span class="pdf-sub">Download PDF Document</span>
+                </div>
+                <svg class="pdf-arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
         </div>
     </section>
 
-    <!-- DOCUMENTS REQUIRED -->
-    <section class="admit-section admit-section-alt" id="documents">
+    <!-- VISION -->
+    <section class="admit-section admit-section-alt" id="vision">
         <div class="admit-wrap">
-            <span class="founder-eyebrow">Documentation</span>
-            <h2 class="admit-heading">Documents Required for Direct 2nd Year Polytechnic</h2>
+            <span class="founder-eyebrow">Our Purpose</span>
+            <h2 class="admit-heading">Vision</h2>
+            <blockquote class="founder-quote">
+                "To create opportunities for tribal and rural area students to become competent diploma
+                engineers to serve industry and society."
+            </blockquote>
+        </div>
+    </section>
 
+    <!-- MISSION -->
+    <section class="admit-section" id="mission">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Our Purpose</span>
+            <h2 class="admit-heading">Mission</h2>
             <ol class="admit-list">
-                <li>Allotment Letter (printout from internet)</li>
-                <li>Std X Mark Sheet (SSC)</li>
-                <li>Std X Passing Certificate (SSC)</li>
-                <li>Std XII (HSC) Mark Sheet</li>
-                <li>Leaving Certificate</li>
-                <li>Nationality Certificate</li>
-                <li>Caste Certificate (all reserved category candidates)</li>
-                <li>Caste Validity Certificate (all reserved category candidates)</li>
-                <li>Non-Creamy Layer Certificate</li>
-                <li>Migration Certificate (students passing Std XII from a board other than Maharashtra)</li>
-                <li>Gap Certificate (in the form of an affidavit on ₹100/- non-judicial stamp paper)</li>
-                <li>Latest colour photographs — total 5 (3 passport size &amp; 2 stamp size)</li>
+                <li>To provide state-of-the-art infrastructure and extensive facilities.</li>
+                <li>To ensure continuous improvement in teaching-learning processes to provide quality-based education.
+                </li>
+                <li>To utilize resources and expertise to organize training programs in emerging technologies for
+                    faculty, staff, and students.</li>
+                <li>To promote lifelong learning, ensuring employability, and encourage entrepreneurship.</li>
+                <li>To inculcate in students the qualities of a good citizen at the individual, social, and professional
+                    level.</li>
             </ol>
+        </div>
+    </section>
 
-            <div class="admit-note">
-                <strong>Note:</strong> All above listed original documents must be submitted along with two attested
-                photocopies of each document.
+    <!-- CORE VALUES -->
+    <section class="admit-section admit-section-alt" id="core-values">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">What Guides Us</span>
+            <h2 class="admit-heading">Core Values of FOP, Akole</h2>
+
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>Social Responsibility</h3>
+                    <p>Our talents, skills, and knowledge are assets to make a positive difference in the lives of
+                        people and organizations we are part of. Our lives, guided by objective values, help create a
+                        just, equitable, and peaceful society.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Dignity of Human Values</h3>
+                    <p>We realize the inherent worth and value the dignity of each individual, irrespective of caste,
+                        colour, creed, and gender. Our response is guided by love, goodness, and compassion for
+                        humankind.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Fulfilling Commitments</h3>
+                    <p>The unlimited potential within human beings can be realized only by fulfilling personal, social,
+                        and spiritual responsibilities. Commitment to work based on these responsibilities unleashes
+                        positive energies imperative for realizing one's potential.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Professional Leadership</h3>
+                    <p>We maintain transparency with all our stakeholders and share important developments with them to
+                        build a trustful relationship.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Mutual Trust</h3>
+                    <p>We view challenges as opportunities and believe in walking the extra mile. We endeavor to blaze a
+                        trail rather than follow a beaten path.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Students' Essentials</h3>
+                    <p>"Intelligence plus character — that is the goal of true education." The Institute provides
+                        platforms to build your intelligence and character, giving prime importance to academic as well
+                        as holistic development.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SCHOLARSHIP -->
-    <section class="admit-section" id="scholarship">
+    <!-- ACADEMICS -->
+    <section class="admit-section" id="academics">
         <div class="admit-wrap">
-            <span class="founder-eyebrow">Financial Support</span>
-            <h2 class="admit-heading">Scholarship</h2>
-            <p class="admit-para">
-                Scholarships are available for all SC, ST, NT, VJ, OBC, SBC, and other eligible category
-                students, as per applicable Government rules.
-            </p>
+            <span class="founder-eyebrow">Student Guidelines</span>
+            <h2 class="admit-heading">Academics</h2>
+            <ul class="admit-bullet-list">
+                <li>Students must attend all theory, tutorial, and practical lectures.</li>
+                <li>Students are expected to pay full attention during lectures and practical classes, participate in
+                    discussions, and complete given tasks in the classroom/practical.</li>
+                <li>They must submit all assignments, tutorials, practical/practical manuals, and
+                    projects/micro-projects on time.</li>
+                <li>Students must check the notice board regularly.</li>
+                <li>Students are required to maintain more than 75% attendance.</li>
+                <li>They must report all difficulties to respective faculty members or class counselors/HOD.</li>
+                <li>Students must participate in skill development certification courses each semester.</li>
+                <li>Students are suggested to discuss academic difficulties with their Class Counselors/Mentors
+                    periodically.</li>
+            </ul>
         </div>
     </section>
 
+    <!-- DISCIPLINE -->
+    <section class="admit-section admit-section-alt" id="discipline">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Student Guidelines</span>
+            <h2 class="admit-heading">Discipline</h2>
+            <p class="admit-para" style="margin-bottom: 22px;">
+                Discipline is typically integral to the success of a college student. Although moving on from
+                the confines of high school academics to the college atmosphere may seem intimidating,
+                building good self-discipline has always been the Institute's priority.
+            </p>
+            <ul class="admit-bullet-list">
+                <li>The academic hours of the college are from 9:00 AM to 4:00 PM, Monday to Saturday, except on every
+                    month's 1st and 3rd Saturday. All are expected to follow this timing and plan accordingly.</li>
+                <li>Students who come late are to proceed to the Library/reading room if they fail to report to their
+                    respective classes on time. A grace time of 5 minutes may be granted by the faculty taking the
+                    class.</li>
+                <li>We promote 100% attendance of students through various incentive schemes.</li>
+                <li>Students are expected to respect the dress code and come to college wearing the prescribed uniform.
+                </li>
+                <li>Students are expected to maintain the legacy of FOP, Akole even outside the campus, especially when
+                    wearing the college uniform.</li>
+                <li>Students are expected to give due respect to their professors and college authorities to ensure a
+                    friendly and progressive campus.</li>
+                <li>Students are invited to orient themselves towards a highly professional life and behavior.</li>
+                <li>Any form of ragging is prohibited by law and should be reported at the earliest to the Class
+                    Counselor/Anti-Ragging Committee for immediate action.</li>
+                <li>All students and their parents must submit anti-ragging affidavits every year, as required by law.
+                </li>
+                <li>No student must indulge in anti-social practices.</li>
+                <li>Mobile phones are not allowed in the classroom and must be kept switched off. Violation may lead to
+                    confiscation of the equipment. Mobiles may be used outside the building, only during off hours.</li>
+                <li>Students are directed to keep their classrooms, curtains, bench-desks, and the premises neat and
+                    clean.</li>
+                <li>FOP, Akole campus is a non-smoking, tobacco-free area.</li>
+                <li>It is the duty of students to take care of their belongings and valuables (mobiles, money,
+                    calculators, bags, books, notebooks, etc.). The college is not responsible for any loss or theft of
+                    the same.</li>
+                <li>Girl students may report to the Women's Grievance Redressal Cell for any kind of harassment or
+                    misbehavior.</li>
+                <li>Students who come to college by motorbike/scooter must wear helmets as per law and carry a valid
+                    driving license and proper vehicle documents. Vehicles without proper documentation will be denied
+                    parking inside the campus.</li>
+            </ul>
+        </div>
+    </section>
 
+    <!-- HOLISTIC DEVELOPMENT -->
+    <section class="admit-section" id="holistic-development">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Beyond Academics</span>
+            <h2 class="admit-heading">Holistic Development</h2>
+            <p class="admit-para" style="margin-bottom: 22px;">
+                This activity aims at the overall development of a student by inculcating the FOP, Akole
+                values, mission, and vision of the Institute. Various events, workshops, and seminars are
+                organized under Holistic Development for students.
+            </p>
 
+            <h3 class="admit-subheading">Major Highlights</h3>
+            <ul class="admit-bullet-list">
+                <li>Organize and attend guest lectures by experts from industry and educational institutes.</li>
+                <li>Participate in industrial visits.</li>
+                <li>Attend skilling workshops within and outside the Institute.</li>
+                <li>Actively participate in project competitions and technical paper presentation competitions within
+                    and outside the Institute.</li>
+                <li>Demonstrate skills in cultural events by participating proactively.</li>
+                <li>Students are encouraged to participate in Board and National Level Sports.</li>
+                <li>Students get a platform to interact with alumni during the Annual Alumni Meet ("Reflection") or
+                    during their college visits.</li>
+                <li>To inculcate social welfare in students, a program named NSS (National Service Scheme) — a
+                    government-sponsored public service program — aims at developing students' personality through
+                    community service.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- HOSTEL RULES -->
+    <section class="admit-section admit-section-alt" id="hostel-rules">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Campus Living</span>
+            <h2 class="admit-heading">Hostel Rules &amp; Regulations</h2>
+            <ul class="admit-bullet-list">
+                <li>Room and roommate, once allotted, will not be changed under any circumstances.</li>
+                <li>Every hosteller must keep their room neat and clean.</li>
+                <li>Every hosteller must register their PC/laptop with the respective Hostel Warden.</li>
+                <li>Every hosteller must wear proper dress while moving in the hostel or college premises.</li>
+                <li>No hosteller is allowed to bring any kind of eatables into the college and hostel premises.</li>
+                <li>Preparation of tea, coffee, etc. is not allowed in hostel rooms.</li>
+                <li>No hosteller is allowed to consume drugs or liquor in the hostel premises. If found, the hosteller
+                    will be permanently rusticated from the hostel immediately.</li>
+                <li>Smoking in the Hostel/College premises is strictly prohibited.</li>
+                <li>Explosives and crackers are strictly banned in College/Hostel premises.</li>
+                <li>Hanging or sticking posters on walls, doors, and windows is not allowed.</li>
+                <li>No hosteller is allowed to bring sticks, steel rods, chains, knives, or any weapons into the hostel.
+                    If found, the hosteller will be permanently rusticated immediately.</li>
+                <li>Every hosteller should keep the bathroom and toilet walls clean.</li>
+                <li>No hosteller will leave the hostel without permission of the hostel authority when going out of
+                    station.</li>
+                <li>Every hosteller must make proper and economical use of lights, fans, and water, and switch off
+                    electric devices and taps when going outside.</li>
+                <li>Use of heaters, irons, and CD/DVD players in rooms is not allowed. If found, the equipment may be
+                    forfeited.</li>
+                <li>Every hosteller should make proper use of the furniture provided. Furniture once given will not be
+                    changed.</li>
+                <li>No hosteller should compel a junior fellow hosteller to do personal work.</li>
+                <li>No hosteller can call a fresher to their room without the warden's permission — doing so will be
+                    treated as ragging and result in immediate rustication from the hostel.</li>
+                <li>Any form of ragging inside or outside the college/hostel premises is not allowed. Guilty parties
+                    will face immediate disciplinary action.</li>
+                <li>No hosteller can entertain outside friends in their room.</li>
+                <li>Every hosteller should report to the hostel before 10:00 PM (boys) and 7:00 PM (girls). Nobody is
+                    allowed to go outside between 10:00 PM and 6:00 AM.</li>
+                <li>The decision of the Chief Warden/Warden will be final in case of any dispute or problem.</li>
+                <li>No hosteller is allowed to keep a motorcycle/scooter for personal use.</li>
+                <li>The hostel authority is not responsible for any kind of theft.</li>
+                <li>No hosteller or outsider will be permitted to enter the hostel premises between 10:00 PM and 6:00 AM
+                    without the prior permission of the hostel warden.</li>
+            </ul>
+        </div>
+    </section>
 
 
 
@@ -778,7 +1092,7 @@
             }
         });
     </script>-->
-     <script>
+    <script>
         const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
 
         dropdownToggles.forEach(toggle => {
