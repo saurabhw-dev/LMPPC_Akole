@@ -448,7 +448,7 @@
         </div>
     </section>-->
 
-   
+
 
     <section class="page-hero">
         <div class="page-hero-wrap">
@@ -620,26 +620,7 @@
             document.getElementById('formNote').style.display = 'block';
         }
     </script>
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            menuToggle.classList.toggle('active');
-            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !expanded);
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    </script>
+   
     <script>
         const animatedSections = document.querySelectorAll('.page-hero, .desk-section');
         const sectionObserver = new IntersectionObserver((entries) => {
@@ -651,6 +632,40 @@
         animatedSections.forEach(el => sectionObserver.observe(el));
     </script>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close menu when a link is clicked — but NOT the About dropdown toggle
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (link.classList.contains('nav-dropdown-toggle')) return;
+
+                navLinks.classList.remove('open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <script>
+        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+        const dropdownParent = document.querySelector('.nav-dropdown');
+
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 920) {
+                e.preventDefault();
+                dropdownParent.classList.toggle('open');
+            }
+        });
+    </script>
 
 
 </body>

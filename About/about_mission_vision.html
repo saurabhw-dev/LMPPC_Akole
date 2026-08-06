@@ -309,7 +309,7 @@
         </div>
     </header>
 
-    
+
     <section class="society-content">
         <div class="society-content-wrap-full">
 
@@ -473,13 +473,27 @@
             menuToggle.setAttribute('aria-expanded', !expanded);
         });
 
-        // Close menu when a link is clicked
+        // Close menu when a link is clicked — but NOT the About dropdown toggle
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                if (link.classList.contains('nav-dropdown-toggle')) return;
+
                 navLinks.classList.remove('open');
                 menuToggle.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
             });
+        });
+    </script>
+
+    <script>
+        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+        const dropdownParent = document.querySelector('.nav-dropdown');
+
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 920) {
+                e.preventDefault();
+                dropdownParent.classList.toggle('open');
+            }
         });
     </script>
 

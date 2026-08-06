@@ -175,7 +175,6 @@ a {
 }
 
 /* header css */
-/* header css */
 header {
   position: sticky;
   top: 0;
@@ -647,6 +646,126 @@ nav a:hover {
   .nav-links {
     top: auto;
     /* let JS/height handle this dynamically instead of a fixed px value */
+  }
+}
+/* Replace the hardcoded top:90px with dynamic positioning */
+@media (max-width: 920px) {
+  header .wrap {
+    height: 90px;
+    padding: 0 18px;
+    position: relative;   /* anchor point for nav-links */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;   /* CHANGED from 90px — always sits right below header, regardless of height */
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 24px 24px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    max-height: 700px;   /* increased so the About dropdown items have room too */
+    opacity: 1;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* Make the dropdown toggle behave like a full-width nav link on mobile */
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+}
+
+@media (max-width: 480px) {
+  header .wrap {
+    height: auto;
+    min-height: 76px;
+    padding: 10px 16px;
+    gap: 10px;
+    position: relative;
+  }
+
+  .nav-links {
+    top: 100%;   /* CHANGED from "auto" — same fix, works regardless of header's actual height */
+  }
+}
+@media (max-width: 920px) {
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .nav-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 0 12px;
+    max-height: 0;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+    transform: none;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    max-height: 900px;   /* enough room for all 9 items to fully expand */
+  }
+
+  .dropdown-header {
+    display: none;   /* hide the "Explore / About Our Institution" label on mobile to save space */
+  }
+
+  .dropdown-grid {
+    display: block;   /* stack single column instead of 2-column grid */
+  }
+
+  .dropdown-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .item-desc {
+    display: none;   /* hide descriptions on mobile, show only titles for compactness */
   }
 }
 
@@ -2364,17 +2483,14 @@ select:focus-visible {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, .65);
-  backdrop-filter: blur(8px);
-
+  background: rgba(10, 20, 15, 0.75);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
-
   opacity: 0;
   visibility: hidden;
-
-  transition: .45s;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
   z-index: 99999;
 }
 
@@ -2384,93 +2500,113 @@ select:focus-visible {
 }
 
 .modal-box {
-
   width: min(850px, 92%);
+  max-height: 88vh;
+  overflow-y: auto;
   background: #fff;
-
-  border-radius: 20px;
-
-  padding: 40px;
-
+  border-radius: 22px;
+  padding: 0;
   position: relative;
-
-  transform: translateY(60px) scale(.9);
-
-  transition: .45s;
-
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
-
+  transform-origin: center center;
+  transform: scale(0.3);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.4);
 }
 
 .modal-overlay.active .modal-box {
-
-  transform: translateY(0) scale(1);
-
+  transform: scale(1);
+  opacity: 1;
+  transition-delay: 0.05s;
 }
 
+/* Decorative header band with gradient + pattern */
 .modal-header {
-
   display: flex;
   gap: 25px;
   align-items: center;
+  padding: 40px 40px 32px;
+  background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
+  border-radius: 22px 22px 0 0;
+  position: relative;
+  overflow: hidden;
+}
 
+.modal-header::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(232, 201, 122, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
 }
 
 .modal-header img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-  width: 180px;
-  border-radius: 15px;
+.modal-overlay.active .modal-header img {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.25s;
+}
 
+.modal-header>div {
+  position: relative;
+  z-index: 1;
+}
+
+.modal-header h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 25px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.modal-overlay.active .modal-header h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+
+.modal-header h4 {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #E8C97A;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.modal-overlay.active .modal-header h4 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.45s;
 }
 
 .modal-body {
-
-  margin-top: 30px;
-
+  padding: 32px 40px 40px;
   line-height: 1.8;
-
   color: #555;
-
-}
-
-.close-modal {
-
-  position: absolute;
-
-  right: 18px;
-
-  top: 18px;
-
-  width: 42px;
-
-  height: 42px;
-
-  border: none;
-
-  border-radius: 50%;
-
-  background: #f2f2f2;
-
-  cursor: pointer;
-
-  font-size: 28px;
-
-  transition: .3s;
-
-}
-
-.close-modal:hover {
-
-  background: #8d1f27;
-
-  color: #fff;
-
-}
-
-.modal-body h3 {
-  margin: 25px 0 12px;
-  color: #8B1E2D;
-  font-size: 22px;
 }
 
 .modal-body p {
@@ -2478,6 +2614,33 @@ select:focus-visible {
   line-height: 1.9;
   text-align: justify;
   margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.modal-overlay.active .modal-body p:nth-of-type(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.modal-overlay.active .modal-body p:nth-of-type(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.modal-overlay.active .modal-body p:nth-of-type(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.7s;
+}
+
+.modal-body h3 {
+  margin: 25px 0 12px;
+  color: #8B1E2D;
+  font-size: 22px;
 }
 
 .modal-list {
@@ -2499,115 +2662,187 @@ select:focus-visible {
   font-style: italic;
   border-radius: 8px;
 }
+
+/* Refined close button */
+.close-modal {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease, opacity 0.4s ease;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0.7) rotate(-45deg);
+}
+
+.modal-overlay.active .close-modal {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition-delay: 0.55s;
+}
+
+.close-modal:hover {
+  background: #E8C97A;
+  color: #1F4D3D;
+  transform: rotate(90deg);
+}
+
+
+/* Custom scrollbar for modal-box on tall content */
+.modal-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+  background: rgba(31, 77, 61, 0.25);
+  border-radius: 10px;
+}
+
 /* ===========================
    TABLET
 =========================== */
-@media (max-width: 768px){
+@media (max-width: 768px) {
+  .modal-box {
+    width: 95%;
+    max-height: 90vh;
+    border-radius: 18px;
+  }
 
-    .modal-box{
-        width:95%;
-        max-height:90vh;
-        overflow-y:auto;
-        padding:30px 25px;
-        border-radius:18px;
-    }
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+    padding: 32px 26px 26px;
+    border-radius: 18px 18px 0 0;
+  }
 
-    .modal-header{
-        flex-direction:column;
-        text-align:center;
-        gap:18px;
-    }
+  .modal-header img {
+    width: 140px;
+    height: 140px;
+  }
 
-    .modal-header img{
-        width:170px;
-    }
+  .modal-header h2 {
+    font-size: 22px;
+  }
 
-    .modal-header h2{
-        font-size:26px;
-        margin-bottom:8px;
-    }
+  .modal-header h4 {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 
-    .modal-header h4{
-        font-size:16px;
-        line-height:1.5;
-    }
+  .modal-body {
+    padding: 26px 26px 30px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
 
-    .modal-body{
-        margin-top:22px;
-        font-size:15px;
-        line-height:1.8;
-        text-align:justify;
-    }
-
-    .close-modal{
-        width:40px;
-        height:40px;
-        font-size:24px;
-    }
-
+  .close-modal {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
 }
-
 
 /* ===========================
    MOBILE
 =========================== */
-@media (max-width: 480px){
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 15px;
+  }
 
-    .modal-overlay{
-        padding:15px;
-    }
+  .modal-box {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 16px;
+  }
 
-    .modal-box{
+  .modal-header {
+    padding: 26px 20px 22px;
+    gap: 15px;
+    border-radius: 16px 16px 0 0;
+  }
 
-        width:100%;
-        max-height:92vh;
-        padding:22px 18px;
-        border-radius:15px;
+  .modal-header img {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+  }
 
-    }
+  .modal-header h2 {
+    font-size: 19px;
+    line-height: 1.3;
+  }
 
-    .modal-header{
+  .modal-header h4 {
+    font-size: 12.5px;
+  }
 
-        gap:15px;
+  .modal-body {
+    padding: 20px 20px 26px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
 
-    }
+  .close-modal {
+    width: 34px;
+    height: 34px;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+  }
+}
+.founder-btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
 
-    .modal-header img{
+/* Press-down feedback */
+.founder-btn-primary:active {
+  transform: scale(0.96);
+}
 
-        width:135px;
-        border-radius:12px;
+/* Ripple circle that expands from click point */
+.founder-btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
 
-    }
+.founder-btn-primary.rippling::after {
+  animation: rippleEffect 0.6s ease-out;
+}
 
-    .modal-header h2{
-
-        font-size:22px;
-        line-height:1.3;
-
-    }
-
-    .modal-header h4{
-
-        font-size:14px;
-
-    }
-
-    .modal-body{
-
-        margin-top:18px;
-        font-size:14px;
-        line-height:1.7;
-
-    }
-
-    .close-modal{
-
-        width:36px;
-        height:36px;
-        top:12px;
-        right:12px;
-        font-size:22px;
-
-    }
-
+@keyframes rippleEffect {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.6;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
 }

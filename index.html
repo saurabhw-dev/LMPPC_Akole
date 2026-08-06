@@ -121,9 +121,102 @@
               </div>
             </div>
           </div>
-          <a href="#departments">Departments</a>
+          <div class="nav-dropdown">
+            <a href="#admission" class="nav-dropdown-toggle">
+              Admission
+              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" width="12" height="12">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <div class="dropdown-header">
+                <span class="dropdown-eyebrow">Explore</span>
+                <span class="dropdown-title">Admission Info</span>
+              </div>
+              <div class="dropdown-grid">
+                <a href="PDF'S/affiliation_certificate.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+                  <span class="item-icon">📜</span>
+                  <span class="item-text">
+                    <span class="item-title">Affiliation Certificate</span>
+                    <span class="item-desc">Our official affiliation proof</span>
+                  </span>
+                </a>
+                <a href="PDF'S/citizen_charts.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+                  <span class="item-icon">📄</span>
+                  <span class="item-text">
+                    <span class="item-title">Citizen Charter</span>
+                    <span class="item-desc">Our service commitments</span>
+                  </span>
+                </a>
+                <!--<a href="Admission/aicte_approvals.html" class="dropdown-item">
+                  <span class="item-icon">✅</span>
+                  <span class="item-text">
+                    <span class="item-title">AICTE Approvals</span>
+                    <span class="item-desc">Approval letters &amp; documents</span>
+                  </span>
+                </a>-->
+                <a href="PDF'S/Extension_Of_Approval.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+                  <span class="item-icon">📋</span>
+                  <span class="item-text">
+                    <span class="item-title">EOA</span>
+                    <span class="item-desc">Extension of Approval</span>
+                  </span>
+                </a>
+                <!--<a href="Admission/admission_process.html" class="dropdown-item">
+                  <span class="item-icon">🎯</span>
+                  <span class="item-text">
+                    <span class="item-title">Admission Process</span>
+                    <span class="item-desc">How to apply, step by step</span>
+                  </span>
+                </a>-->
+                <a href="Admission/First_Year_Polytechnic.html" class="dropdown-item">
+                  <span class="item-icon">1️⃣</span>
+                  <span class="item-text">
+                    <span class="item-title">First Year Polytechnic</span>
+                    <span class="item-desc">Admission details for Year 1</span>
+                  </span>
+                </a>
+                <a href="Admission/Direct_Second_Year_Polytechnic_Admission.html" class="dropdown-item">
+                  <span class="item-icon">2️⃣</span>
+                  <span class="item-text">
+                    <span class="item-title">Direct Second Year</span>
+                    <span class="item-desc">Lateral entry admissions</span>
+                  </span>
+                </a>
+                <a href="PDF'S/fee_structure.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+                  <span class="item-icon">💰</span>
+                  <span class="item-text">
+                    <span class="item-title">Fee Structure</span>
+                    <span class="item-desc">Course-wise fee details</span>
+                  </span>
+                </a>
+                <a href="Admission/admission_enquiry_form.html" class="dropdown-item">
+                  <span class="item-icon">📝</span>
+                  <span class="item-text">
+                    <span class="item-title">Admission Enquiry Form</span>
+                    <span class="item-desc">Get in touch about admission</span>
+                  </span>
+                </a>
+                <a href="Admission/rules_regulations.html" class="dropdown-item">
+                  <span class="item-icon">📖</span>
+                  <span class="item-text">
+                    <span class="item-title">Rules &amp; Regulations</span>
+                    <span class="item-desc">Admission policies</span>
+                  </span>
+                </a>
+                <a href="Admission/scholarship_section.html" class="dropdown-item">
+                  <span class="item-icon">🎓</span>
+                  <span class="item-text">
+                    <span class="item-title">Scholarship Section</span>
+                    <span class="item-desc">Financial aid &amp; scholarships</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
           <a href="#placement">T&amp;P Cell</a>
-          <a href="#admission">Admission</a>
+          <a href="#departments">Departments</a>
           <a href="#contact">Contact</a>
           <a href="#admission" class="btn btn-ghost mobile-only">Apply Now</a>
         </div>
@@ -281,18 +374,68 @@
           to bring quality technical education to the youth of this region.
         </p>
         <div class="founder-cta">
-          <a href="#about" class="founder-btn-primary">
+          <button class="founder-btn-primary" id="openMadhukarModal">
             <span>Learn More About Us</span>
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
 
     </div>
   </section>
+  <div class="modal-overlay" id="madhukarModal">
+    <div class="modal-box">
+      <button class="close-modal">&times;</button>
+
+      <div class="modal-header">
+        <img src="./images/pichad_saheb_image_1.jpg" alt="Loknete Madhukarrao Pichad">
+        <div>
+          <h2>Loknete Madhukarrao (Kashinath) Pichad</h2>
+          <h4>1 June 1941 – 6 December 2024<br>Former Cabinet Minister, Government of Maharashtra</h4>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          Madhukar Kashinath Pichad was an Indian politician, social worker, and Cabinet Minister in
+          the Government of Maharashtra. He represented the Akole Assembly constituency in the
+          Maharashtra Legislative Assembly for seven consecutive terms from 1980 to 2014, and served
+          as Leader of the Opposition in the Maharashtra Legislative Assembly from March 1995 to
+          July 1999.
+        </p>
+        <p>
+          Born on 1 June 1941 into a tribal family of the Mahadeo Koli community in Rajur, Ahmednagar
+          district, he completed his B.A. LLB from Ferguson College, Pune, where he first became
+          involved in student politics. He began his public career as a Zila Parishad Member and
+          Chairman of Panchayat Samiti Akole Taluka in 1972.
+        </p>
+        <p>
+          A member of the Nationalist Congress Party for most of his career and later its Maharashtra
+          President, he joined the Bharatiya Janata Party in 2019 along with his son, Vaibhav Pichad.
+          Beyond politics, he founded the Amrutsagar Milk Co-operative in Akole in 1961 and served as
+          founding president of the Agasti Sahakari Sugar Factory — India's first cooperative sugar
+          factory, established in 1993.
+        </p>
+
+        <h3>Ministerial Positions Held</h3>
+        <ul class="modal-list">
+          <li>Cabinet Minister for Tribal Development (1991–1992), Sudhakarrao Naik ministry</li>
+          <li>Cabinet Minister for Tribal Development, Dairy Development, Travel Development &amp; Animal Husbandry and
+            Fisheries (1993–1995), Fourth Pawar ministry</li>
+          <li>Cabinet Minister for Tribal Development, third term (1999–2003), First Deshmukh ministry</li>
+          <li>Cabinet Minister for Tribal Development, Nomadic Tribes and Other Backward Class Welfare (2013–2014),
+            Prithviraj Chavan ministry</li>
+        </ul>
+
+        <div class="modal-quote">
+          "True progress for our tribal and rural communities lies in the twin pillars of education and self-reliance."
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- SON / SUCCESSOR SECTION -->
   <section class="founder-section founder-section-reverse" id="successor">
@@ -919,9 +1062,11 @@
       menuToggle.setAttribute('aria-expanded', !expanded);
     });
 
-    // Close menu when a link is clicked
+    // Close menu when a link is clicked — but NOT the About dropdown toggle
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
+        if (link.classList.contains('nav-dropdown-toggle')) return;   // ✅ ADD THIS LINE
+
         navLinks.classList.remove('open');
         menuToggle.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
@@ -1036,7 +1181,7 @@
     if (heroEl) heroObserver.observe(heroEl);
   </script>
 
-  <script>
+  <!--<script>
     const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
     const dropdownParent = document.querySelector('.nav-dropdown');
 
@@ -1046,42 +1191,79 @@
         dropdownParent.classList.toggle('open');
       }
     });
+  </script>-->
+
+  <script>
+    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 920) {
+          e.preventDefault();
+          toggle.closest('.nav-dropdown').classList.toggle('open');
+        }
+      });
+    });
   </script>
+  <script>
+    const madhukarModal = document.getElementById("madhukarModal");
+    const openMadhukarBtn = document.getElementById("openMadhukarModal");
+    const closeMadhukarBtn = madhukarModal.querySelector(".close-modal");   // ✅ already correctly scoped
+
+    openMadhukarBtn.onclick = () => {
+      madhukarModal.classList.remove("closing");
+      madhukarModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMadhukarModal() {
+      madhukarModal.classList.add("closing");
+      madhukarModal.classList.remove("active");
+      setTimeout(() => {
+        madhukarModal.classList.remove("closing");
+        document.body.style.overflow = "";
+      }, 500);
+    }
+
+    closeMadhukarBtn.onclick = closeMadhukarModal;
+
+    madhukarModal.onclick = (e) => {
+      if (e.target === madhukarModal) closeMadhukarModal();
+    }
+  </script>
+
   <script>
     const modal = document.getElementById("vaibhavModal");
     const openBtn = document.getElementById("openVaibhavModal");
-    const closeBtn = document.querySelector(".close-modal");
+    const closeBtn = modal.querySelector(".close-modal");   // ✅ FIXED — was document.querySelector, now scoped to modal
 
     openBtn.onclick = () => {
+      openBtn.classList.remove('rippling');
+      void openBtn.offsetWidth;
+      openBtn.classList.add('rippling');
 
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
-
     }
 
     function closeModal() {
-
       modal.classList.remove("active");
       document.body.style.overflow = "";
-
     }
 
     closeBtn.onclick = closeModal;
 
     modal.onclick = (e) => {
-
-      if (e.target === modal) {
-        closeModal();
-      }
-
+      if (e.target === modal) closeModal();
     }
+  </script>
 
+  <!-- Combine both Escape key listeners into ONE, checking both modals -->
+  <script>
     document.addEventListener("keydown", (e) => {
-
-      if (e.key === "Escape") {
-        closeModal();
-      }
-
+      if (e.key !== "Escape") return;
+      if (madhukarModal.classList.contains("active")) closeMadhukarModal();
+      if (modal.classList.contains("active")) closeModal();
     });
   </script>
 </body>

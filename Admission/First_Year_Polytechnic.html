@@ -12,217 +12,184 @@
     <link rel="stylesheet" href="../css/homepage.css">
     <style>
         /* SOCIETY HERO (reused) */
-        .society-hero {
-            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
-            padding: 70px 60px;
-            text-align: center;
-        }
-
-        .society-hero-wrap {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .society-title {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 38px;
-            font-weight: 800;
-            color: #fff;
-            margin: 12px 0 10px;
-            line-height: 1.25;
-        }
-
-        .society-subtitle {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: 400;
-        }
-
-        /* GOVERNING BODY TABLE */
-        .gov-table-section {
+        /* ADMISSION CONTENT SECTIONS */
+        .admit-section {
             background: var(--paper);
-            padding: 70px 60px;
+            padding: 60px 60px;
         }
 
-        .gov-table-wrap {
-            max-width: 950px;
+        .admit-section-alt {
+            background: #f6f2e9;
+        }
+
+        .admit-wrap {
+            max-width: 850px;
             margin: 0 auto;
-            background: #fff;
-            border-radius: 14px;
-            border: 1px solid var(--line);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .gov-table-section.in-view .gov-table-wrap {
+        .admit-section.in-view .admit-wrap {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .gov-table {
+        .admit-heading {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 27px;
+            font-weight: 800;
+            color: #1F4D3D;
+            line-height: 1.3;
+            margin: 8px 0 24px;
+        }
+
+        .admit-para {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Table */
+        .admit-table-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .admit-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .gov-table thead {
+        .admit-table thead {
             background: #1F4D3D;
         }
 
-        .gov-table thead th {
+        .admit-table thead th {
             color: #fff;
             font-size: 12.5px;
             font-weight: 700;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
             text-transform: uppercase;
             text-align: left;
-            padding: 18px 24px;
+            padding: 16px 22px;
         }
 
-        .gov-table .col-sr {
+        .admit-table .col-sr {
             width: 90px;
             text-align: center;
         }
 
-        .gov-table tbody tr {
-            border-bottom: 1px solid var(--line);
-            transition: background 0.25s ease;
+        .admit-table .col-strength {
+            width: 120px;
+            text-align: center;
         }
 
-        .gov-table tbody tr:last-child {
+        .admit-table tbody tr {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .admit-table tbody tr:last-child {
             border-bottom: none;
         }
 
-        .gov-table tbody tr:hover {
-            background: rgba(232, 201, 122, 0.08);
-        }
-
-        .gov-table tbody tr:nth-child(even) {
+        .admit-table tbody tr:nth-child(even) {
             background: rgba(0, 0, 0, 0.015);
         }
 
-        .gov-table tbody tr:nth-child(even):hover {
+        .admit-table tbody tr:hover {
             background: rgba(232, 201, 122, 0.08);
         }
 
-        .gov-table td {
-            padding: 16px 24px;
+        .admit-table td {
+            padding: 14px 22px;
             font-size: 14px;
             color: #333;
-            vertical-align: middle;
         }
 
-        .gov-table .col-sr {
+        .admit-table .col-sr {
             font-family: Georgia, serif;
             font-weight: 700;
             color: #E8C97A;
             background: #1F4D3D;
             text-align: center;
-            font-size: 14px;
         }
 
-        .gov-table .col-name {
-            font-weight: 600;
+        .admit-table .col-strength {
+            text-align: center;
+            font-weight: 700;
             color: #1F4D3D;
         }
 
-        .gov-table .col-name-head {
-            font-weight: 600;
-            color: white;
+        /* Numbered list — eligibility / documents */
+        .admit-list {
+            list-style: none;
+            counter-reset: admit-counter;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
 
-        .desig-tag {
-            display: inline-block;
-            font-size: 11.5px;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
+        .admit-list li {
+            counter-increment: admit-counter;
+            position: relative;
+            padding-left: 40px;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
         }
 
-        .desig-tag.chairman {
-            background: rgba(31, 77, 61, 0.1);
-            color: #1F4D3D;
+        .admit-list li::before {
+            content: counter(admit-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #1F4D3D;
+            color: #E8C97A;
+            font-family: Georgia, serif;
+            font-weight: 700;
+            font-size: 12.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .desig-tag.secretary {
-            background: rgba(191, 155, 94, 0.15);
-            color: #8a6d2f;
-        }
-
-        .desig-tag.member {
-            background: rgba(0, 0, 0, 0.05);
+        .admit-note {
+            margin-top: 22px;
+            padding: 16px 20px;
+            background: rgba(232, 201, 122, 0.12);
+            border-left: 3px solid #E8C97A;
+            border-radius: 8px;
+            font-size: 13.5px;
+            line-height: 1.6;
             color: #555;
         }
 
-        .desig-tag.ex-officio {
-            background: rgba(200, 80, 60, 0.1);
-            color: #a8452f;
-        }
-
-        .desig-tag.nominee {
-            background: rgba(90, 120, 180, 0.1);
-            color: #3a5a8c;
-        }
-
-        .desig-tag.industrialist {
-            background: rgba(232, 201, 122, 0.2);
-            color: #8a6d2f;
-        }
-
-        /* RESPONSIVE — horizontal scroll on small screens */
-        @media (max-width: 800px) {
-            .gov-table-section {
-                padding: 44px 16px;
-            }
-
-            .gov-table-wrap {
-                overflow-x: auto;
-            }
-
-            .gov-table {
-                min-width: 600px;
-            }
-
-            .society-title {
-                font-size: 27px;
-            }
-        }
-
-        .gov-hero {
-            background: var(--paper);
-            padding: 40px 30px;
-            text-align: center;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .gov-hero-wrap {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .gov-hero.in-view .gov-hero-wrap {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .gov-hero-title {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 30px;
-            font-weight: 800;
-            color: #1F4D3D;
-        }
-
         @media (max-width: 700px) {
-            .gov-hero {
-                padding: 30px 20px;
+            .admit-section {
+                padding: 40px 22px;
             }
 
-            .gov-hero-title {
-                font-size: 22px;
+            .admit-heading {
+                font-size: 21px;
+            }
+
+            .admit-table thead th {
+                padding: 12px 14px;
+                font-size: 11px;
+            }
+
+            .admit-table td {
+                padding: 12px 14px;
+                font-size: 13px;
             }
         }
 
@@ -452,19 +419,23 @@
         </div>
     </header>
 
+
+
     <!--<section class="society-hero">
         <div class="society-hero-wrap">
-            <span class="founder-eyebrow">Leadership &amp; Oversight</span>
-            <h1 class="society-title">Governing Body</h1>
-            <p class="society-subtitle">The members entrusted with guiding our institution's growth and governance</p>
+            <span class="founder-eyebrow">How We're Organized</span>
+            <h1 class="society-title">Organization Structure</h1>
+            <p class="society-subtitle">Our institute's reporting hierarchy, from leadership to every department</p>
         </div>
     </section>-->
+
+    
 
     <section class="page-hero">
         <div class="page-hero-wrap">
             <div class="page-hero-left">
-                <span class="page-hero-eyebrow">About Our Institution</span>
-                <h1 class="page-hero-title">Governing <span>Body</span></h1>
+                <span class="page-hero-eyebrow">Admission</span>
+                <h1 class="page-hero-title">First Year <span>Polytechnic</span></h1>
             </div>
             <div class="page-hero-right">
                 <div class="page-hero-line"></div>
@@ -473,82 +444,103 @@
         </div>
     </section>
 
-    <section class="gov-table-section">
-        <div class="gov-table-wrap">
-            <table class="gov-table">
-                <thead>
-                    <tr>
-                        <th class="col-sr">Sr. No.</th>
-                        <th class="col-name-head">Name and Address</th>
-                        <th class="col-desig">Designation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-sr">01</td>
-                        <td class="col-name">Shri Sunil Baban Datir</td>
-                        <td class="col-desig"><span class="desig-tag chairman">Chairman (Society)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">02</td>
-                        <td class="col-name">Shri Sudhakar Dinkar Deshmukh</td>
-                        <td class="col-desig"><span class="desig-tag secretary">Secretary (Society)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">03</td>
-                        <td class="col-name">Shri D. M. Sant</td>
-                        <td class="col-desig"><span class="desig-tag member">Member (Society)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">04</td>
-                        <td class="col-name">Shri Y. D. Abhale</td>
-                        <td class="col-desig"><span class="desig-tag member">Member (Society)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">05</td>
-                        <td class="col-name">Shri A. N. Nawale</td>
-                        <td class="col-desig"><span class="desig-tag member">Member (Society)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">06</td>
-                        <td class="col-name">Shri S. K. Arote</td>
-                        <td class="col-desig"><span class="desig-tag member">Member (Society)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">07</td>
-                        <td class="col-name">Member Secretary, AICTE, RO, Mumbai</td>
-                        <td class="col-desig"><span class="desig-tag ex-officio">Ex-Officio</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">08</td>
-                        <td class="col-name">Member</td>
-                        <td class="col-desig"><span class="desig-tag nominee">AICTE Nominee</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">09</td>
-                        <td class="col-name">Member</td>
-                        <td class="col-desig"><span class="desig-tag nominee">AICTE Nominee</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">10</td>
-                        <td class="col-name">Joint Director, DTE, RO, Nashik</td>
-                        <td class="col-desig"><span class="desig-tag ex-officio">Member, Govt. of MH, Ex-Officio</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">11</td>
-                        <td class="col-name">Dr. Hitesh R. Karia</td>
-                        <td class="col-desig"><span class="desig-tag industrialist">Industrialist</span></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sr">12</td>
-                        <td class="col-name">Principal</td>
-                        <td class="col-desig"><span class="desig-tag chairman">Member-Secretary</span></td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- COURSES TABLE -->
+    <section class="admit-section" id="courses">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Courses Offered</span>
+            <h2 class="admit-heading">Courses Offered by FOP, Akole</h2>
+
+            <div class="admit-table-card">
+                <table class="admit-table">
+                    <thead>
+                        <tr>
+                            <th class="col-sr">Sr. No.</th>
+                            <th>Name of Course</th>
+                            <th class="col-strength">Strength</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-sr">1</td>
+                            <td>Diploma in Mechanical Engineering</td>
+                            <td class="col-strength">60</td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">2</td>
+                            <td>Diploma in Computer Engineering</td>
+                            <td class="col-strength">60</td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">3</td>
+                            <td>Diploma in E&amp;TC Engineering</td>
+                            <td class="col-strength">60</td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">4</td>
+                            <td>Diploma in Civil Engineering</td>
+                            <td class="col-strength">60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
+
+    <!-- ELIGIBILITY -->
+    <section class="admit-section admit-section-alt" id="eligibility">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Requirements</span>
+            <h2 class="admit-heading">Eligibility Criteria for First Year</h2>
+
+            <ol class="admit-list">
+                <li>S.S.C. (10th) Pass with a minimum of 35% marks.</li>
+                <li>Candidates are advised to follow the rules for admission to the First Year Diploma in Engineering
+                    course as published by the Directorate of Technical Education from time to time.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- DOCUMENTS REQUIRED -->
+    <section class="admit-section" id="documents">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Documentation</span>
+            <h2 class="admit-heading">Documents Required for First Year</h2>
+
+            <ol class="admit-list">
+                <li>Allotment Letter (printout from internet)</li>
+                <li>Std X Mark Sheet (SSC)</li>
+                <li>Std X Passing Certificate (SSC)</li>
+                <li>Leaving Certificate</li>
+                <li>Nationality Certificate</li>
+                <li>Caste Certificate (all reserved category candidates)</li>
+                <li>Caste Validity Certificate (all reserved category candidates)</li>
+                <li>Non-Creamy Layer Certificate</li>
+                <li>Migration Certificate (students passing Std X from a board other than Maharashtra)</li>
+                <li>Gap Certificate (in the form of an affidavit on ₹100/- non-judicial stamp paper)</li>
+                <li>Latest colour photographs — total 5 (3 passport size &amp; 2 stamp size)</li>
+            </ol>
+
+            <div class="admit-note">
+                <strong>Note:</strong> All above listed original documents must be submitted along with two attested
+                photocopies of each document.
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHOLARSHIP -->
+    <section class="admit-section admit-section-alt" id="scholarship">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Financial Support</span>
+            <h2 class="admit-heading">Scholarship</h2>
+            <p class="admit-para">
+                Scholarships are available for all SC, ST, NT, VJ, OBC, SBC, and Minority (Jain, Buddhist,
+                Christian, Sikh, Parsi, Muslim) students, as per applicable Government rules.
+            </p>
+        </div>
+    </section>
+
+
+
 
 
 
@@ -637,17 +629,6 @@
             document.getElementById('formNote').style.display = 'block';
         }
     </script>
-
-    <script>
-        const animatedSections = document.querySelectorAll('.page-hero, .gov-table-section');
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('in-view');
-                else entry.target.classList.remove('in-view');
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        animatedSections.forEach(el => sectionObserver.observe(el));
-    </script>
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -682,6 +663,17 @@
             }
         });
     </script>
+    <script>
+        const animatedSections = document.querySelectorAll('.page-hero, .admit-section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+                else entry.target.classList.remove('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        animatedSections.forEach(el => sectionObserver.observe(el));
+    </script>
+
 
 
 

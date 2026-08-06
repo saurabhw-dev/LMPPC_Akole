@@ -127,15 +127,16 @@
             font-weight: 600;
             color: #1F4D3D;
         }
-        .gov-table .principal-title {
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    color: #666;
-    margin-top: 4px;
-}
 
-         .gov-table .col-name-head {
+        .gov-table .principal-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .gov-table .col-name-head {
             font-weight: 600;
             color: white;
         }
@@ -529,12 +530,14 @@
                     <tr>
                         <td class="col-sr">08</td>
                         <td class="col-name">Prof. P.S.Wakchaure</td>
-                        <td class="col-desig"><span class="desig-tag nominee">Member(Teaching Staff Representative)</span></td>
+                        <td class="col-desig"><span class="desig-tag nominee">Member(Teaching Staff
+                                Representative)</span></td>
                     </tr>
                     <tr>
                         <td class="col-sr">09</td>
                         <td class="col-name">Mr.S S Chothve</td>
-                        <td class="col-desig"><span class="desig-tag nominee">Member(Non Teaching Staff Representative)</span></td>
+                        <td class="col-desig"><span class="desig-tag nominee">Member(Non Teaching Staff
+                                Representative)</span></td>
                     </tr>
                     <tr>
                         <td class="col-sr">10</td>
@@ -542,7 +545,7 @@
                         <td class="col-desig"><span class="desig-tag ex-officio">Member Secretary</span>
                         </td>
                     </tr>
-                   
+
                 </tbody>
             </table>
         </div>
@@ -635,6 +638,18 @@
             document.getElementById('formNote').style.display = 'block';
         }
     </script>
+
+    <script>
+        const animatedSections = document.querySelectorAll('.page-hero, .gov-table-section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+                else entry.target.classList.remove('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        animatedSections.forEach(el => sectionObserver.observe(el));
+    </script>
+
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -646,24 +661,28 @@
             menuToggle.setAttribute('aria-expanded', !expanded);
         });
 
-        // Close menu when a link is clicked
+        // Close menu when a link is clicked — but NOT the About dropdown toggle
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                if (link.classList.contains('nav-dropdown-toggle')) return;
+
                 navLinks.classList.remove('open');
                 menuToggle.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
     </script>
+
     <script>
-        const animatedSections = document.querySelectorAll('.page-hero, .gov-table-section');
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('in-view');
-                else entry.target.classList.remove('in-view');
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        animatedSections.forEach(el => sectionObserver.observe(el));
+        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+        const dropdownParent = document.querySelector('.nav-dropdown');
+
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 920) {
+                e.preventDefault();
+                dropdownParent.classList.toggle('open');
+            }
+        });
     </script>
 
 
