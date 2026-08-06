@@ -11,6 +11,112 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/homepage.css">
     <style>
+        /* SOCIETY HERO (reused) */
+        .society-hero {
+            background: linear-gradient(135deg, #1F4D3D 0%, #16362a 100%);
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .society-hero-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .society-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #fff;
+            margin: 12px 0 10px;
+            line-height: 1.25;
+        }
+
+        .society-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 400;
+        }
+
+        .gov-hero {
+            background: var(--paper);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .gov-hero-wrap {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .gov-hero.in-view .gov-hero-wrap {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gov-hero-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: #1F4D3D;
+        }
+
+        @media (max-width: 700px) {
+            .gov-hero {
+                padding: 30px 20px;
+            }
+
+            .gov-hero-title {
+                font-size: 22px;
+            }
+        }
+
+        .dept-hero-section {
+            background: var(--paper);
+            padding: 50px 60px 0;
+        }
+
+        .dept-hero-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .dept-image-frame {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 6px solid #fff;
+            outline: 1px solid var(--line);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.13);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .dept-hero-section.in-view .dept-image-frame {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dept-image-frame img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .dept-hero-section {
+                padding: 30px 20px 0;
+            }
+
+            .dept-image-frame img {
+                height: 220px;
+            }
+        }
+
         .page-hero {
             background: var(--paper);
             padding: 54px 60px;
@@ -110,213 +216,181 @@
             }
         }
 
-        /* heading end */
-        /* DESK SECTIONS — Chairman / Secretary */
-        .desk-section {
+        /* ADMISSION/CONTENT SECTIONS (reused across pages) */
+        .admit-section {
             background: var(--paper);
             padding: 60px 60px;
         }
 
-        .desk-section-reverse {
+        .admit-section-alt {
             background: #f6f2e9;
         }
 
-        .desk-wrap {
-            max-width: 1200px;
+        .admit-wrap {
+            max-width: 850px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 0.75fr 1.25fr;
-            gap: 55px;
-            align-items: start;
-        }
-
-        .desk-wrap-reverse {
-            grid-template-columns: 1.25fr 0.75fr;
-        }
-
-        .desk-wrap-reverse .desk-text-col {
-            order: 1;
-        }
-
-        .desk-wrap-reverse .desk-image-col {
-            order: 2;
-        }
-
-        /* Image column */
-        .desk-image-frame {
-            position: relative;
-            border-radius: 14px;
-            overflow: hidden;
-            aspect-ratio: 4 / 3.9;
-            border: 6px solid #fff;
-            outline: 1px solid var(--line);
-            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.13);
-        }
-
-        .desk-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
-
-        .desk-badge {
-            background: #fff;
-            border-radius: 10px;
-            padding: 12px 16px;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
-            border-left: 3px solid #1F4D3D;
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            max-width: 240px;
-            margin-top: -32px;
-            margin-left: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .desk-badge-right {
-            margin-left: auto;
-            margin-right: 20px;
-            border-left: none;
-            border-right: 3px solid #1F4D3D;
-            text-align: right;
-        }
-
-        .badge-label {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.1px;
-            text-transform: uppercase;
-            color: var(--maroon);
-        }
-
-        .badge-value {
-            font-size: 12.5px;
-            font-weight: 600;
-            color: #1F4D3D;
-            line-height: 1.35;
-        }
-
-        /* Text column */
-        .desk-name {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 27px;
-            font-weight: 800;
-            color: #1F4D3D;
-            line-height: 1.28;
-            margin: 8px 0 6px;
-        }
-
-        .desk-title {
-            display: block;
-            font-size: 13.5px;
-            font-weight: 500;
-            color: #7a7a7a;
-            margin-bottom: 20px;
-        }
-
-        .desk-para {
-            font-size: 14.5px;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 16px;
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
-        /* Entry animations */
-        .desk-image-col {
-            opacity: 0;
-            transform: translateX(-35px);
-            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .desk-image-col {
-            position: sticky;
-            top: 120px;
-            align-self: start;
-        }
-
-        .desk-wrap-reverse .desk-image-col {
-            transform: translateX(35px);
-        }
-
-        .desk-text-col>* {
             opacity: 0;
             transform: translateY(24px);
             transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .desk-text-col .founder-eyebrow {
-            transition-delay: 0.1s;
-        }
-
-        .desk-text-col .desk-name {
-            transition-delay: 0.22s;
-        }
-
-        .desk-text-col .desk-title {
-            transition-delay: 0.34s;
-        }
-
-        .desk-text-col .desk-para:nth-of-type(1) {
-            transition-delay: 0.46s;
-        }
-
-        .desk-text-col .desk-para:nth-of-type(2) {
-            transition-delay: 0.58s;
-        }
-
-        .desk-text-col .desk-para:nth-of-type(3) {
-            transition-delay: 0.7s;
-        }
-
-        .desk-section.in-view .desk-image-col {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .desk-section.in-view .desk-text-col>* {
+        .admit-section.in-view .admit-wrap {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 960px) {
-            .desk-section {
-                padding: 44px 24px;
+        .admit-heading {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 27px;
+            font-weight: 800;
+            color: #1F4D3D;
+            line-height: 1.3;
+            margin: 8px 0 24px;
+        }
+
+        .founder-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--maroon);
+            margin-bottom: 14px;
+        }
+
+        .founder-quote {
+            position: relative;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.6;
+            color: #1F4D3D;
+            padding-left: 22px;
+            border-left: 3px solid #E8C97A;
+        }
+
+        @media (max-width: 700px) {
+            .admit-section {
+                padding: 40px 22px;
             }
 
-            .desk-wrap,
-            .desk-wrap-reverse {
-                grid-template-columns: 1fr;
-                gap: 28px;
+            .admit-heading {
+                font-size: 21px;
             }
 
-            .desk-wrap-reverse .desk-text-col,
-            .desk-wrap-reverse .desk-image-col {
-                order: unset;
+            .founder-quote {
+                font-size: 15.5px;
+                padding-left: 16px;
+            }
+        }
+
+        /* HOD card */
+        .hod-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 24px 26px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .hod-avatar {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+            background: rgba(31, 77, 61, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .hod-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hod-info h3 {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1F4D3D;
+        }
+
+        .hod-role {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #E8C97A;
+            background: rgba(232, 201, 122, 0.15);
+            padding: 3px 10px;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        .hod-dept {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        /* Simple key-value detail table */
+        .detail-label {
+            padding: 16px 22px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1F4D3D;
+            background: rgba(31, 77, 61, 0.04);
+            width: 220px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .detail-value {
+            padding: 16px 22px;
+            font-size: 14px;
+            color: #444;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .admit-table tbody tr:last-child .detail-label,
+        .admit-table tbody tr:last-child .detail-value {
+            border-bottom: none;
+        }
+
+        @media (max-width: 700px) {
+            .hod-card {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .desk-image-frame {
-                max-width: 300px;
+            .hod-role {
                 margin: 0 auto;
             }
 
-            .desk-badge,
-            .desk-badge-right {
-                margin: -26px auto 0;
-                text-align: left;
-                border-left: 3px solid #1F4D3D;
-                border-right: none;
+            .detail-label {
+                width: 140px;
+                padding: 12px 16px;
+                font-size: 12px;
             }
 
-            .desk-name {
-                font-size: 21px;
+            .detail-value {
+                padding: 12px 16px;
+                font-size: 13px;
             }
+        }
+
+        .admit-para {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+            text-justify: inter-word;
         }
     </style>
 
@@ -364,63 +438,63 @@
                                 <span class="dropdown-title">About Our Institution</span>
                             </div>
                             <div class="dropdown-grid">
-                                <a href="about_society.html" class="dropdown-item">
+                                <a href="../About/about_society.html" class="dropdown-item">
                                     <span class="item-icon">🏛️</span>
                                     <span class="item-text">
                                         <span class="item-title">About Society</span>
                                         <span class="item-desc">Our founding trust &amp; legacy</span>
                                     </span>
                                 </a>
-                                <a href="about_institute.html" class="dropdown-item">
+                                <a href="../About/about_institute.html" class="dropdown-item">
                                     <span class="item-icon">🎓</span>
                                     <span class="item-text">
                                         <span class="item-title">About Institute</span>
                                         <span class="item-desc">Our college &amp; programs</span>
                                     </span>
                                 </a>
-                                <a href="about_mission_vision.html" class="dropdown-item">
+                                <a href="../About/about_mission_vision.html" class="dropdown-item">
                                     <span class="item-icon">🎯</span>
                                     <span class="item-text">
                                         <span class="item-title">Mission &amp; Vision</span>
                                         <span class="item-desc">What drives us forward</span>
                                     </span>
                                 </a>
-                                <a href="organization_structure.html" class="dropdown-item">
+                                <a href="../About/organization_structure.html" class="dropdown-item">
                                     <span class="item-icon">🗂️</span>
                                     <span class="item-text">
                                         <span class="item-title">Organization Structure</span>
                                         <span class="item-desc">How we're organized</span>
                                     </span>
                                 </a>
-                                <a href="about_governing_body.html" class="dropdown-item">
+                                <a href="../About/about_governing_body.html" class="dropdown-item">
                                     <span class="item-icon">⚖️</span>
                                     <span class="item-text">
                                         <span class="item-title">Governing Body</span>
                                         <span class="item-desc">Leadership &amp; oversight</span>
                                     </span>
                                 </a>
-                                <a href="about_local_mgmt_committee.html" class="dropdown-item">
+                                <a href="../About/about_local_mgmt_committee.html" class="dropdown-item">
                                     <span class="item-icon">👥</span>
                                     <span class="item-text">
                                         <span class="item-title">Local Management</span>
                                         <span class="item-desc">Committee members</span>
                                     </span>
                                 </a>
-                                <a href="about_chairman_Desk.html" class="dropdown-item">
+                                <a href="../About/about_chairman_Desk.html" class="dropdown-item">
                                     <span class="item-icon">✍️</span>
                                     <span class="item-text">
                                         <span class="item-title">Chairman's Desk</span>
                                         <span class="item-desc">A message to students</span>
                                     </span>
                                 </a>
-                                <a href="about_principal_Desk.html" class="dropdown-item">
+                                <a href="../About/about_principal_Desk.html" class="dropdown-item">
                                     <span class="item-icon">📋</span>
                                     <span class="item-text">
                                         <span class="item-title">Principal's Desk</span>
                                         <span class="item-desc">A message from leadership</span>
                                     </span>
                                 </a>
-                                <a href="about_admin_staff.html" class="dropdown-item">
+                                <a href="../About/about_admin_staff.html" class="dropdown-item">
                                     <span class="item-icon">👤</span>
                                     <span class="item-text">
                                         <span class="item-title">Our Admin Staff</span>
@@ -489,7 +563,8 @@
                                         <span class="item-desc">Admission details for Year 1</span>
                                     </span>
                                 </a>
-                                <a href="../Admission/Direct_Second_Year_Polytechnic_Admission.html" class="dropdown-item">
+                                <a href="../Admission/Direct_Second_Year_Polytechnic_Admission.html"
+                                    class="dropdown-item">
                                     <span class="item-icon">2️⃣</span>
                                     <span class="item-text">
                                         <span class="item-title">Direct Second Year</span>
@@ -542,49 +617,49 @@
                                 <span class="dropdown-title">Our Departments</span>
                             </div>
                             <div class="dropdown-grid">
-                                <a href="../Department/general_science.html" class="dropdown-item">
+                                <a href="general_science.html" class="dropdown-item">
                                     <span class="item-icon">🔬</span>
                                     <span class="item-text">
                                         <span class="item-title">General Science</span>
                                         <span class="item-desc">Foundational science &amp; math</span>
                                     </span>
                                 </a>
-                                <a href="../Department/civil_engineering.html" class="dropdown-item">
+                                <a href="civil_engineering.html" class="dropdown-item">
                                     <span class="item-icon">🏗️</span>
                                     <span class="item-text">
                                         <span class="item-title">Civil Engineering</span>
                                         <span class="item-desc">Construction &amp; infrastructure</span>
                                     </span>
                                 </a>
-                                <a href="../Department/computer_engineering.html" class="dropdown-item">
+                                <a href="computer_engineering.html" class="dropdown-item">
                                     <span class="item-icon">💻</span>
                                     <span class="item-text">
                                         <span class="item-title">Computer Engineering</span>
                                         <span class="item-desc">Programming &amp; systems</span>
                                     </span>
                                 </a>
-                                <a href="../Department/entc_engineering.html" class="dropdown-item">
+                                <a href="entc_engineering.html" class="dropdown-item">
                                     <span class="item-icon">📡</span>
                                     <span class="item-text">
                                         <span class="item-title">E&amp;TC Engineering</span>
                                         <span class="item-desc">Electronics &amp; telecommunication</span>
                                     </span>
                                 </a>
-                                <a href="../Department/mechanical_engineering.html" class="dropdown-item">
+                                <a href="mechanical_engineering.html" class="dropdown-item">
                                     <span class="item-icon">⚙️</span>
                                     <span class="item-text">
                                         <span class="item-title">Mechanical Engineering</span>
                                         <span class="item-desc">Design &amp; manufacturing</span>
                                     </span>
                                 </a>
-                                <a href="../Department/workshop.html" class="dropdown-item">
+                                <a href="workshop.html" class="dropdown-item">
                                     <span class="item-icon">🛠️</span>
                                     <span class="item-text">
                                         <span class="item-title">Workshop</span>
                                         <span class="item-desc">Hands-on practical training</span>
                                     </span>
                                 </a>
-                                <a href="../Department/library.html" class="dropdown-item">
+                                <a href="library.html" class="dropdown-item">
                                     <span class="item-icon">📚</span>
                                     <span class="item-text">
                                         <span class="item-title">Library</span>
@@ -594,6 +669,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <a href="#placement">T&amp;P Cell</a>
                     <a href="#contact">Contact</a>
                     <a href="#admission" class="btn btn-ghost mobile-only">Apply Now</a>
@@ -608,21 +685,13 @@
         </div>
     </header>
 
-    <!--<section class="society-hero">
-        <div class="society-hero-wrap">
-            <span class="founder-eyebrow">Leadership &amp; Oversight</span>
-            <h1 class="society-title">Governing Body</h1>
-            <p class="society-subtitle">The members entrusted with guiding our institution's growth and governance</p>
-        </div>
-    </section>-->
-
 
 
     <section class="page-hero">
         <div class="page-hero-wrap">
             <div class="page-hero-left">
-                <span class="page-hero-eyebrow">About Our Institution</span>
-                <h1 class="page-hero-title">Principal's <span>Desk</span></h1>
+                <span class="page-hero-eyebrow">Department</span>
+                <h1 class="page-hero-title">Civil <span>Engineering</span></h1>
             </div>
             <div class="page-hero-right">
                 <div class="page-hero-line"></div>
@@ -631,91 +700,95 @@
         </div>
     </section>
 
-    <!-- PRINCIPAL DESK -->
-    <section class="desk-section" id="principal-desk">
-        <div class="desk-wrap">
+    <!-- DEPARTMENT PROFILE -->
+    <section class="admit-section" id="profile">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Overview</span>
+            <h2 class="admit-heading">Civil Department Profile</h2>
 
-            <div class="desk-image-col">
-                <div class="desk-image-frame">
-                    <img src="../images/About/principal_photo.png" alt="Dr. R. D. Palhade">
-                </div>
+            <p class="admit-para" style="margin-bottom: 18px;">
+                Civil Engineering is a field of continuous practice, putting innovative ideas into reality.
+                Since ancient times, Civil Engineering has looked toward the betterment of community by
+                providing various aspects of livelihood. The field consists of working in the planning, design,
+                construction, maintenance, and management of structures and public works, as well as private
+                constructions. It deals with the construction of buildings, bridges, roads, railways,
+                structures, water supply and sewer systems, irrigation, power, and environment — the root of
+                every engineering discipline that follows, for the betterment of society.
+            </p>
 
-                <div class="desk-badge">
-                    <span class="badge-label">Principal</span>
-                    <span class="badge-value">
-                        Loknete Madhukarrao Pichad Polytechnic College, Akole
-                    </span>
-                </div>
-            </div>
+            <p class="admit-para" style="margin-bottom: 18px;">
+                With the goal of creating quality civil engineers, the branch was established to impart
+                skill-based knowledge and improve the proficiency of budding engineers through industrial
+                training, expert lectures, project work, and industrial visits — with a vision of helping
+                students build skills in software such as AutoCAD, Google SketchUp, STAAD Pro, and Revit.
+            </p>
 
-            <div class="desk-text-col">
-
-                <span class="founder-eyebrow">Principal's Desk</span>
-
-                <h2 class="desk-name">
-                    Dr. R. D. Palhade
-                </h2>
-
-                <span class="desk-title">
-                    Principal, Loknete Madhukarrao Pichad Polytechnic College, Akole
-                </span>
-
-                <p class="desk-para">
-                    Dear Students, Parents &amp; All Stakeholders,
-                </p>
-
-                <p class="desk-para">
-                    It gives me immense pleasure to welcome you to this virtual tour of Akole Taluka Education Society's
-                    Faculty of Polytechnic, Akole. Our institution is a place where students always come first. As an
-                    educational service provider, we are committed to making every student's learning journey
-                    comfortable, meaningful, and skill-oriented. We do not simply teach courses differently from
-                    others—we believe in delivering education through innovative teaching methods that inspire
-                    creativity, confidence, and practical knowledge.
-                </p>
-
-                <p class="desk-para">
-                    As the Principal, my unwavering goal is to establish this institute as one of the finest diploma
-                    engineering colleges, recognized for academic excellence and holistic personality development. Being
-                    an engineer by training and a teacher by profession, I understand the responsibility of transforming
-                    young aspirants into competent diploma engineers. With more than two and a half decades of
-                    experience in engineering education, I am committed to guiding students toward professional success
-                    through quality education and ethical values.
-                </p>
-
-                <p class="desk-para">
-                    Our mission is to impart qualitative technical education at an affordable cost, especially for
-                    students from rural areas, while nurturing them into competent, efficient, trustworthy, and socially
-                    responsible engineers. We strive to develop technical expertise alongside discipline, integrity,
-                    leadership, and a strong sense of responsibility towards society, the state, and the nation.
-                </p>
-
-                <p class="desk-para">
-                    We envision our institute as a center of excellence in education, research, innovation, and industry
-                    collaboration. Through our highly qualified, dedicated, and experienced faculty members, we
-                    encourage students to actively participate in co-curricular, extracurricular, and social activities
-                    that enhance their overall personality. Our focus remains on providing students with opportunities
-                    to grow academically, professionally, and personally while promoting research and technological
-                    development.
-                </p>
-
-                <p class="desk-para">
-                    At ATES's Faculty of Polytechnic, we believe that a diploma is more than just a qualification—it is
-                    a gateway to countless opportunities. The management, faculty, supporting staff, and students work
-                    together with dedication to create an environment that nurtures innovation, leadership, and lifelong
-                    learning. We remain committed to producing well-rounded diploma engineers who can contribute
-                    meaningfully to the advancement of engineering, technology, and society.
-                </p>
-
-                <p class="desk-para">
-                    I warmly invite you to visit our campus and experience the difference created by our vibrant
-                    academic environment and the new generation of budding technocrats. I wish each one of you a bright
-                    future and every success in your journey towards becoming a proud Diploma Engineer.
-                </p>
-
-            </div>
-
+            <p class="admit-para">
+                With the rapid growth of industrialization, there has been a serious harmful effect on the
+                community. Population growth and urbanization have brought new problems in urban planning,
+                such as water supply, waste disposal, transportation, and global warming. There is a need for
+                value-based education to overcome these problems in infrastructural development, and to build
+                tomorrow's healthy, pollution-free India. Beyond the negative aspects of development, civil
+                engineers must work together with morals, ethics, knowledge, and unity to build a good nation.
+            </p>
         </div>
     </section>
+
+    <!-- HOD -->
+    <section class="admit-section admit-section-alt" id="hod">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Leadership</span>
+            <h2 class="admit-heading">Head of Department</h2>
+
+            <div class="hod-card">
+                <div class="hod-avatar">👤</div>
+                <div class="hod-info">
+                    <h3>Prof. M. K. Phatangare</h3>
+                    <span class="hod-role">Head of Department</span>
+                    <span class="hod-dept">Department of Civil Engineering<br>Faculty of Polytechnic, Akole</span>
+                </div>
+            </div>
+
+            <p class="admit-para" style="margin-top: 24px;">
+                Many pass-out students are working at various positions in industry, government, and the
+                education sector in India and abroad.
+            </p>
+        </div>
+    </section>
+
+    <!-- DEPARTMENT DETAILS -->
+    <section class="admit-section" id="dept-details">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">At a Glance</span>
+            <h2 class="admit-heading">Department Details</h2>
+
+            <div class="admit-table-card">
+                <table class="admit-table">
+                    <tbody>
+                        <tr>
+                            <td class="detail-label">Name of Programme</td>
+                            <td class="detail-value">Diploma in Civil Engineering</td>
+                        </tr>
+                        <tr>
+                            <td class="detail-label">Sanctioned Intake</td>
+                            <td class="detail-value">Regular: 60</td>
+                        </tr>
+                        <tr>
+                            <td class="detail-label">Duration</td>
+                            <td class="detail-value">3 Years</td>
+                        </tr>
+                        <tr>
+                            <td class="detail-label">Course Code</td>
+                            <td class="detail-value">CE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+
 
     <footer>
         <div class="wrap">
@@ -835,19 +908,19 @@
         });
     </script>-->
     <script>
-    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+        const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
 
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        if (window.innerWidth <= 920) {
-          e.preventDefault();
-          toggle.closest('.nav-dropdown').classList.toggle('open');
-        }
-      });
-    });
-  </script>
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 920) {
+                    e.preventDefault();
+                    toggle.closest('.nav-dropdown').classList.toggle('open');
+                }
+            });
+        });
+    </script>
     <script>
-        const animatedSections = document.querySelectorAll('.page-hero, .desk-section');
+        const animatedSections = document.querySelectorAll('.page-hero, .admit-section, .dept-hero-section');
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('in-view');
@@ -856,7 +929,6 @@
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
         animatedSections.forEach(el => sectionObserver.observe(el));
     </script>
-
 
 
 
