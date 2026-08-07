@@ -664,305 +664,6 @@
                 font-size: 9.5px;
             }
         }
-
-        /* GALLERY SECTION */
-        .gallery-section {
-            background: var(--paper);
-            padding: 60px 60px 80px;
-        }
-
-        .gallery-wrap {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* Filter tabs */
-        .gallery-filters {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: #666;
-            background: #fff;
-            border: 1px solid var(--line);
-            padding: 10px 22px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            border-color: #E8C97A;
-            color: #1F4D3D;
-        }
-
-        .filter-btn.active {
-            background: #1F4D3D;
-            color: #fff;
-            border-color: #1F4D3D;
-        }
-
-        /* Masonry grid */
-        .gallery-masonry {
-            columns: 4 260px;
-            column-gap: 18px;
-        }
-
-        .gallery-tile {
-            break-inside: avoid;
-            margin-bottom: 18px;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid var(--line);
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-            cursor: pointer;
-            opacity: 0;
-            transform: translateY(40px) scale(0.94);
-            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.35s ease;
-            position: relative;
-        }
-
-        .gallery-section.in-view .gallery-tile {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .gallery-tile:nth-child(1) {
-            transition-delay: 0.03s;
-        }
-
-        .gallery-tile:nth-child(2) {
-            transition-delay: 0.08s;
-        }
-
-        .gallery-tile:nth-child(3) {
-            transition-delay: 0.13s;
-        }
-
-        .gallery-tile:nth-child(4) {
-            transition-delay: 0.18s;
-        }
-
-        .gallery-tile:nth-child(5) {
-            transition-delay: 0.23s;
-        }
-
-        .gallery-tile:nth-child(6) {
-            transition-delay: 0.28s;
-        }
-
-        .gallery-tile:nth-child(7) {
-            transition-delay: 0.33s;
-        }
-
-        .gallery-tile:nth-child(8) {
-            transition-delay: 0.38s;
-        }
-
-        .gallery-tile:nth-child(9) {
-            transition-delay: 0.43s;
-        }
-
-        .gallery-tile:nth-child(10) {
-            transition-delay: 0.48s;
-        }
-
-        .gallery-tile:nth-child(11) {
-            transition-delay: 0.53s;
-        }
-
-        .gallery-tile:nth-child(12) {
-            transition-delay: 0.58s;
-        }
-
-        .gallery-tile.hidden {
-            display: none;
-        }
-
-        .gallery-tile img {
-            width: 100%;
-            display: block;
-            height: auto;
-            transition: transform 0.5s ease, filter 0.5s ease;
-        }
-
-        .gallery-tile.tall img {
-            height: 380px;
-            object-fit: cover;
-        }
-
-        .gallery-tile:not(.tall) img {
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .gallery-tile:hover {
-            box-shadow: 0 22px 44px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-tile:hover img {
-            transform: scale(1.08);
-        }
-
-        /* Zoom icon overlay on hover */
-        .gallery-tile::after {
-            content: '⤢';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.5);
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #1F4D3D;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-        }
-
-        .gallery-tile:hover::after {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        @media (max-width: 900px) {
-            .gallery-section {
-                padding: 40px 20px 50px;
-            }
-
-            .gallery-masonry {
-                columns: 2 180px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-masonry {
-                columns: 1;
-            }
-        }
-
-        /* LIGHTBOX */
-        .lightbox-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(10, 20, 15, 0.94);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-            z-index: 9999;
-        }
-
-        .lightbox-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lightbox-img {
-            max-width: 85vw;
-            max-height: 85vh;
-            border-radius: 10px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
-        }
-
-        .lightbox-overlay.active .lightbox-img {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 26px;
-            right: 30px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 26px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            background: #E8C97A;
-            color: #1F4D3D;
-            transform: rotate(90deg);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .lightbox-nav:hover {
-            background: #E8C97A;
-            color: #1F4D3D;
-        }
-
-        .lightbox-prev {
-            left: 26px;
-        }
-
-        .lightbox-next {
-            right: 26px;
-        }
-
-        .lightbox-counter {
-            position: absolute;
-            bottom: 26px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.7);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 600px) {
-            .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-            }
-
-            .lightbox-close {
-                top: 16px;
-                right: 16px;
-                width: 38px;
-                height: 38px;
-                font-size: 22px;
-            }
-        }
     </style>
 
 </head>
@@ -1298,11 +999,13 @@
         </div>
     </header>
 
+
+
     <section class="page-hero">
         <div class="page-hero-wrap">
             <div class="page-hero-left">
-                <span class="page-hero-eyebrow">Campus Life</span>
-                <h1 class="page-hero-title">Photo <span>Gallery</span></h1>
+                <span class="page-hero-eyebrow">T&amp;P Cell</span>
+                <h1 class="page-hero-title">Placement <span>Record</span></h1>
             </div>
             <div class="page-hero-right">
                 <div class="page-hero-line"></div>
@@ -1311,158 +1014,208 @@
         </div>
     </section>
 
-    <!-- GALLERY FILTER TABS -->
-    <section class="gallery-section" id="gallery">
-        <div class="gallery-wrap">
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="campus">Campus</button>
-                <button class="filter-btn" data-filter="events">Events</button>
-                <button class="filter-btn" data-filter="placement">Placement</button>
-                <!--<button class="filter-btn" data-filter="labs">Labs</button>-->
-            </div>
+    <!-- INTRO -->
+    <section class="admit-section" id="placement-intro">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Track Record</span>
+            <h2 class="admit-heading">Our Placement History</h2>
+            <p class="admit-para">
+                Our Training &amp; Placement Cell has consistently connected students with leading companies
+                across the manufacturing, automotive, and electronics sectors. Below is a year-wise record of
+                students placed through our institute.
+            </p>
+        </div>
+    </section>
+    <section class="admit-section admit-section-alt" id="placement-2021-22">
+        <div class="admit-wrap" style="max-width: 1100px;">
+            <span class="founder-eyebrow">Academic Year 2021–2022</span>
+            <h2 class="admit-heading">Placement Record</h2>
 
-            <div class="gallery-masonry">
-                <div class="gallery-tile" data-category="campus"><img src="../images/Gallery/About/About_Society.png"
-                        alt="Campus">
-                </div>
-                <div class="gallery-tile tall" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/Project_Exhibition.jpeg" alt="campus"></div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_1.png"
-                        alt="campus"></div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_2.png"
-                        alt="campus"></div>
-                <div class="gallery-tile tall" data-category="campus placement"><img
-                        src="../images/Gallery/IV_Training/Img_3.png" alt="Campus"></div>
-                <div class="gallery-tile" data-category="campus"><img src="../images/Gallery/IV_Training/Img_4.png"
-                        alt="campus">
-                </div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_5.png"
-                        alt="campus"></div>
-                <div class="gallery-tile tall" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_6.png"
-                        alt="campus"></div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_7.png"
-                        alt="Campus">
-                </div>
-                <div class="gallery-tile" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/College_Image_1.png" alt="campus">
-                </div>
-                <div class="gallery-tile tall" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/Spandan_Image_1.jpeg" alt="campus">
-                </div>
-                <div class="gallery-tile" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/Spandan_Image_2.jpeg" alt="Campus">
-                </div>
-
-                <!-- events 1 to 12 -->
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_1.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_2.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_3.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_4.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_5.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_6.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_7.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_8.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_9.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_10.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_11.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_12.jpeg"
-                        alt="events">
-                </div>
-
-                <!-- events 1 to 12 -->
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_13.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_14.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_15.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_16.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_17.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_18.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_19.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_20.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_21.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_22.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_23.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_24.jpeg"
-                        alt="events">
-                </div>
-
-                <!-- events 24 to 36 -->
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_25.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_26.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_27.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_28.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_29.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_30.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_31.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_32.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_33.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_34.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_35.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_36.jpeg"
-                        alt="events">
-                </div>
-
-
+            <div class="placement-table-card">
+                <table class="placement-table">
+                    <thead>
+                        <tr>
+                            <th class="col-sr">No.</th>
+                            <th>Student</th>
+                            <th>Branch</th>
+                            <th>Industry</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-sr">01</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">NY</span>
+                                    <span class="student-name">Naikwadi Yogeshwar Balasaheb</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Sigma Electric Manufacturing Corporation Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">02</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">GA</span>
+                                    <span class="student-name">Gorde Aniket Bhausaheb</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Sigma Electric Manufacturing Corporation Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">03</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">RA</span>
+                                    <span class="student-name">Rokade Abhishek Balasaheb</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Bajaj Auto Limited</td>
+                            <td><span class="loc-tag">Waluj, Aurangabad</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">04</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">SG</span>
+                                    <span class="student-name">Shelke Ganesh Jalindar</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Ring Plus Aqua</td>
+                            <td><span class="loc-tag">Sinnar, Nashik</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">05</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">SS</span>
+                                    <span class="student-name">Shinde Suraj Pramod</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Volkswagen India Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">06</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">NR</span>
+                                    <span class="student-name">Nehe Rohini Rajendra</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Sigma Electric Manufacturing Corporation Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">07</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">LP</span>
+                                    <span class="student-name">Lande Pradip Sadashiv</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Mathura Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">08</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">MD</span>
+                                    <span class="student-name">More Dipak Vishnu</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Ring Plus Aqua</td>
+                            <td><span class="loc-tag">Sinnar, Nashik</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">09</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">NA</span>
+                                    <span class="student-name">Nade Akash Radhakrushna</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Banteler Automotive India Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">10</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">PS</span>
+                                    <span class="student-name">Pokharkar Sunny Macchindranath</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Shan Cars Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Sangamner</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">11</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">SG</span>
+                                    <span class="student-name">Sadgir Ganesh Vitthal</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-mech">Mechanical</span></td>
+                            <td>Eno. Minda Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">12</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">VR</span>
+                                    <span class="student-name">Vidya Ranjana S.</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-entc">E&amp;TC</span></td>
+                            <td>Shilpa Machinery</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">13</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">KV</span>
+                                    <span class="student-name">Kale Vaishnavi B.</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-entc">E&amp;TC</span></td>
+                            <td>Rinder India Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sr">14</td>
+                            <td>
+                                <div class="student-cell">
+                                    <span class="student-avatar">EP</span>
+                                    <span class="student-name">Ekhande Priyanka B.</span>
+                                </div>
+                            </td>
+                            <td><span class="branch-tag branch-entc">E&amp;TC</span></td>
+                            <td>Rinder India Pvt. Ltd.</td>
+                            <td><span class="loc-tag">Chakan, Pune</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox-overlay" id="lightboxOverlay">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
-        <img class="lightbox-img" id="lightboxImg" src="" alt="">
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
-        <div class="lightbox-counter" id="lightboxCounter"></div>
-    </div>
     <footer>
         <div class="wrap">
             <div class="foot-grid">
@@ -1593,7 +1346,7 @@
         });
     </script>
     <script>
-        const animatedSections = document.querySelectorAll('.page-hero, .admit-section, .gallery-section');
+        const animatedSections = document.querySelectorAll('.page-hero, .admit-section, .recruiters-grid-section');
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('in-view');
@@ -1601,87 +1354,6 @@
             });
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
         animatedSections.forEach(el => sectionObserver.observe(el));
-    </script>
-    <script>
-        // FILTER LOGIC
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const tiles = document.querySelectorAll('.gallery-tile');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.dataset.filter;
-                tiles.forEach(tile => {
-                    if (filter === 'all' || tile.dataset.category.split(' ').includes(filter)) {
-                        tile.classList.remove('hidden');
-                    } else {
-                        tile.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // LIGHTBOX LOGIC
-        const lightbox = document.getElementById('lightboxOverlay');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        const lightboxCounter = document.getElementById('lightboxCounter');
-
-        let currentIndex = 0;
-        let visibleImages = [];
-
-        function updateVisibleImages() {
-            visibleImages = Array.from(tiles)
-                .filter(tile => !tile.classList.contains('hidden'))
-                .map(tile => tile.querySelector('img').src);
-        }
-
-        function openLightbox(index) {
-            updateVisibleImages();
-            currentIndex = index;
-            lightboxImg.src = visibleImages[currentIndex];
-            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleImages.length}`;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function showImage(index) {
-            currentIndex = (index + visibleImages.length) % visibleImages.length;
-            lightboxImg.src = visibleImages[currentIndex];
-            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleImages.length}`;
-        }
-
-        tiles.forEach((tile, i) => {
-            tile.addEventListener('click', () => {
-                updateVisibleImages();
-                const visibleIndex = Array.from(tiles).filter(t => !t.classList.contains('hidden')).indexOf(tile);
-                openLightbox(visibleIndex);
-            });
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxNext.addEventListener('click', () => showImage(currentIndex + 1));
-        lightboxPrev.addEventListener('click', () => showImage(currentIndex - 1));
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
-            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
-        });
     </script>
 
 

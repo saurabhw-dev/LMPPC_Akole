@@ -509,459 +509,133 @@
             }
         }
 
-        .branch-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: rgba(31, 77, 61, 0.08);
-            color: #1F4D3D;
+        /* Gallery grid with floating + tilt animation */
+        .visit-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            perspective: 1000px;
         }
 
-        @media (max-width: 900px) {
-            .admit-table-card {
-                overflow-x: auto;
-            }
-
-            .admit-table {
-                min-width: 720px;
-            }
-        }
-
-        .placement-table-card {
-            background: #fff;
-            border-radius: 14px;
-            border: 1px solid var(--line);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
-            overflow: hidden;
-            overflow-x: auto;
-        }
-
-        .placement-table {
-            width: 100%;
-            min-width: 780px;
-            border-collapse: collapse;
-        }
-
-        .placement-table thead th {
-            background: #1F4D3D;
-            color: #fff;
-            font-size: 11.5px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            text-align: left;
-            padding: 15px 20px;
-        }
-
-        .placement-table thead th.col-sr {
-            width: 56px;
-            text-align: center;
-        }
-
-        .placement-table tbody tr {
-            border-bottom: 1px solid var(--line);
-            transition: background 0.25s ease;
-        }
-
-        .placement-table tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        .placement-table tbody tr:hover {
-            background: rgba(232, 201, 122, 0.08);
-        }
-
-        .placement-table td {
-            padding: 13px 20px;
-            font-size: 13.5px;
-            color: #333;
-            vertical-align: middle;
-        }
-
-        .placement-table td.col-sr {
-            text-align: center;
-            font-family: Georgia, serif;
-            font-weight: 700;
-            color: #bbb;
-            font-size: 13px;
-        }
-
-        .student-cell {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .student-avatar {
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1F4D3D, #16362a);
-            color: #E8C97A;
-            font-size: 11px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .student-name {
-            font-weight: 600;
-            color: #1F4D3D;
-        }
-
-        .branch-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 11px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .branch-mech {
-            background: rgba(31, 77, 61, 0.1);
-            color: #1F4D3D;
-        }
-
-        .branch-entc {
-            background: rgba(191, 155, 94, 0.18);
-            color: #8a6d2f;
-        }
-
-        .branch-civil {
-            background: rgba(90, 120, 180, 0.12);
-            color: #3a5a8c;
-        }
-
-        .branch-comp {
-            background: rgba(200, 80, 60, 0.1);
-            color: #a8452f;
-        }
-
-        .loc-tag {
-            font-size: 12.5px;
-            color: #666;
-        }
-
-        @media (max-width: 700px) {
-            .placement-table thead th {
-                padding: 11px 14px;
-                font-size: 10px;
-            }
-
-            .placement-table td {
-                padding: 10px 14px;
-                font-size: 12.5px;
-            }
-
-            .student-avatar {
-                width: 26px;
-                height: 26px;
-                font-size: 9.5px;
-            }
-        }
-
-        /* GALLERY SECTION */
-        .gallery-section {
-            background: var(--paper);
-            padding: 60px 60px 80px;
-        }
-
-        .gallery-wrap {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* Filter tabs */
-        .gallery-filters {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: #666;
-            background: #fff;
-            border: 1px solid var(--line);
-            padding: 10px 22px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            border-color: #E8C97A;
-            color: #1F4D3D;
-        }
-
-        .filter-btn.active {
-            background: #1F4D3D;
-            color: #fff;
-            border-color: #1F4D3D;
-        }
-
-        /* Masonry grid */
-        .gallery-masonry {
-            columns: 4 260px;
-            column-gap: 18px;
-        }
-
-        .gallery-tile {
-            break-inside: avoid;
-            margin-bottom: 18px;
+        .gallery-item {
+            aspect-ratio: 4 / 3;
             border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--line);
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-            cursor: pointer;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
             opacity: 0;
-            transform: translateY(40px) scale(0.94);
-            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.35s ease;
+            transform: translateY(40px) scale(0.9);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease;
             position: relative;
+            cursor: pointer;
         }
 
-        .gallery-section.in-view .gallery-tile {
+        .admit-section.in-view .gallery-item {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
 
-        .gallery-tile:nth-child(1) {
-            transition-delay: 0.03s;
+        /* Staggered entrance */
+        .gallery-item:nth-child(1) {
+            transition-delay: 0.05s;
         }
 
-        .gallery-tile:nth-child(2) {
-            transition-delay: 0.08s;
-        }
-
-        .gallery-tile:nth-child(3) {
+        .gallery-item:nth-child(2) {
             transition-delay: 0.13s;
         }
 
-        .gallery-tile:nth-child(4) {
-            transition-delay: 0.18s;
+        .gallery-item:nth-child(3) {
+            transition-delay: 0.21s;
         }
 
-        .gallery-tile:nth-child(5) {
-            transition-delay: 0.23s;
+        .gallery-item:nth-child(4) {
+            transition-delay: 0.29s;
         }
 
-        .gallery-tile:nth-child(6) {
-            transition-delay: 0.28s;
+        .gallery-item:nth-child(5) {
+            transition-delay: 0.37s;
         }
 
-        .gallery-tile:nth-child(7) {
-            transition-delay: 0.33s;
+        .gallery-item:nth-child(6) {
+            transition-delay: 0.45s;
         }
 
-        .gallery-tile:nth-child(8) {
-            transition-delay: 0.38s;
+        /* Continuous gentle floating, once revealed */
+        .admit-section.in-view .gallery-item {
+            animation: floatItem 4s ease-in-out infinite;
         }
 
-        .gallery-tile:nth-child(9) {
-            transition-delay: 0.43s;
+        .admit-section.in-view .gallery-item:nth-child(odd) {
+            animation-delay: 0s;
         }
 
-        .gallery-tile:nth-child(10) {
-            transition-delay: 0.48s;
+        .admit-section.in-view .gallery-item:nth-child(even) {
+            animation-delay: 1.2s;
         }
 
-        .gallery-tile:nth-child(11) {
-            transition-delay: 0.53s;
+        .admit-section.in-view .gallery-item:nth-child(3n) {
+            animation-delay: 2.4s;
         }
 
-        .gallery-tile:nth-child(12) {
-            transition-delay: 0.58s;
+        @keyframes floatItem {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-10px) scale(1);
+            }
         }
 
-        .gallery-tile.hidden {
-            display: none;
+        /* Pause floating + apply 3D tilt on hover */
+        .gallery-item:hover {
+            animation-play-state: paused;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+            z-index: 2;
         }
 
-        .gallery-tile img {
+        .gallery-item img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            height: auto;
-            transition: transform 0.5s ease, filter 0.5s ease;
+            transition: transform 0.4s ease, filter 0.4s ease;
         }
 
-        .gallery-tile.tall img {
-            height: 380px;
-            object-fit: cover;
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
 
-        .gallery-tile:not(.tall) img {
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .gallery-tile:hover {
-            box-shadow: 0 22px 44px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-tile:hover img {
-            transform: scale(1.08);
-        }
-
-        /* Zoom icon overlay on hover */
-        .gallery-tile::after {
-            content: '⤢';
+        /* Shine sweep overlay on hover */
+        .gallery-item::after {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.5);
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #1F4D3D;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            inset: 0;
+            background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+            background-size: 200% 200%;
+            background-position: -100% -100%;
+            transition: background-position 0.7s ease;
             pointer-events: none;
         }
 
-        .gallery-tile:hover::after {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
+        .gallery-item:hover::after {
+            background-position: 100% 100%;
         }
 
-        @media (max-width: 900px) {
-            .gallery-section {
-                padding: 40px 20px 50px;
+        @media (max-width: 700px) {
+            .visit-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
             }
 
-            .gallery-masonry {
-                columns: 2 180px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-masonry {
-                columns: 1;
-            }
-        }
-
-        /* LIGHTBOX */
-        .lightbox-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(10, 20, 15, 0.94);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-            z-index: 9999;
-        }
-
-        .lightbox-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lightbox-img {
-            max-width: 85vw;
-            max-height: 85vh;
-            border-radius: 10px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
-        }
-
-        .lightbox-overlay.active .lightbox-img {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 26px;
-            right: 30px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 26px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            background: #E8C97A;
-            color: #1F4D3D;
-            transform: rotate(90deg);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .lightbox-nav:hover {
-            background: #E8C97A;
-            color: #1F4D3D;
-        }
-
-        .lightbox-prev {
-            left: 26px;
-        }
-
-        .lightbox-next {
-            right: 26px;
-        }
-
-        .lightbox-counter {
-            position: absolute;
-            bottom: 26px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.7);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 600px) {
-            .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
+            .gallery-item {
+                animation: none !important;
             }
 
-            .lightbox-close {
-                top: 16px;
-                right: 16px;
-                width: 38px;
-                height: 38px;
-                font-size: 22px;
-            }
+            /* disable float on mobile for performance/simplicity */
         }
     </style>
 
@@ -1298,11 +972,12 @@
         </div>
     </header>
 
+
     <section class="page-hero">
         <div class="page-hero-wrap">
             <div class="page-hero-left">
-                <span class="page-hero-eyebrow">Campus Life</span>
-                <h1 class="page-hero-title">Photo <span>Gallery</span></h1>
+                <span class="page-hero-eyebrow">T&amp;P Cell</span>
+                <h1 class="page-hero-title">Industrial Visit &amp; <span>Training</span></h1>
             </div>
             <div class="page-hero-right">
                 <div class="page-hero-line"></div>
@@ -1311,158 +986,72 @@
         </div>
     </section>
 
-    <!-- GALLERY FILTER TABS -->
-    <section class="gallery-section" id="gallery">
-        <div class="gallery-wrap">
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="campus">Campus</button>
-                <button class="filter-btn" data-filter="events">Events</button>
-                <button class="filter-btn" data-filter="placement">Placement</button>
-                <!--<button class="filter-btn" data-filter="labs">Labs</button>-->
-            </div>
+    <!-- OVERVIEW -->
+    <section class="admit-section" id="overview">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Bridging Classroom &amp; Industry</span>
+            <h2 class="admit-heading">Industrial Visit &amp; Training</h2>
+            <p class="admit-para" style="margin-bottom: 18px;">
+                Our Training &amp; Placement Cell organizes regular industrial visits and structured training
+                programs to give students first-hand exposure to real manufacturing processes, modern
+                equipment, and workplace practices — bridging the gap between classroom learning and
+                industry expectations.
+            </p>
+            <p class="admit-para">
+                Students across all departments — Mechanical, Civil, Computer, and E&amp;TC Engineering —
+                visit leading companies and industrial units throughout the academic year, gaining practical
+                insight into production lines, quality control, safety standards, and emerging technologies
+                used in their respective fields.
+            </p>
+        </div>
+    </section>
 
-            <div class="gallery-masonry">
-                <div class="gallery-tile" data-category="campus"><img src="../images/Gallery/About/About_Society.png"
-                        alt="Campus">
-                </div>
-                <div class="gallery-tile tall" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/Project_Exhibition.jpeg" alt="campus"></div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_1.png"
-                        alt="campus"></div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_2.png"
-                        alt="campus"></div>
-                <div class="gallery-tile tall" data-category="campus placement"><img
-                        src="../images/Gallery/IV_Training/Img_3.png" alt="Campus"></div>
-                <div class="gallery-tile" data-category="campus"><img src="../images/Gallery/IV_Training/Img_4.png"
-                        alt="campus">
-                </div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_5.png"
-                        alt="campus"></div>
-                <div class="gallery-tile tall" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_6.png"
-                        alt="campus"></div>
-                <div class="gallery-tile" data-category="campus placement"><img src="../images/Gallery/IV_Training/Img_7.png"
-                        alt="Campus">
-                </div>
-                <div class="gallery-tile" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/College_Image_1.png" alt="campus">
-                </div>
-                <div class="gallery-tile tall" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/Spandan_Image_1.jpeg" alt="campus">
-                </div>
-                <div class="gallery-tile" data-category="campus"><img
-                        src="../images/Gallery/Slideshow_images/Spandan_Image_2.jpeg" alt="Campus">
-                </div>
+    <!-- WHY IT MATTERS -->
+    <section class="admit-section admit-section-alt" id="why-it-matters">
+        <div class="admit-wrap">
+            <span class="founder-eyebrow">Why It Matters</span>
+            <h2 class="admit-heading">What Students Gain</h2>
 
-                <!-- events 1 to 12 -->
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_1.jpeg"
-                        alt="events">
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>Real-World Exposure</h3>
+                    <p>Students see how theoretical concepts translate into actual industrial processes and workflows.
+                    </p>
                 </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_2.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_3.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_4.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_5.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_6.jpeg"
-                        alt="events">
+                <div class="value-card">
+                    <h3>Industry Standards</h3>
+                    <p>Understanding of safety protocols, quality control, and best practices followed in professional
+                        settings.</p>
                 </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_7.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_8.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_9.jpeg"
-                        alt="events">
+                <div class="value-card">
+                    <h3>Career Clarity</h3>
+                    <p>Direct interaction with industry professionals helps students make informed career choices.</p>
                 </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_10.jpeg"
-                        alt="events">
+                <div class="value-card">
+                    <h3>Placement Readiness</h3>
+                    <p>Familiarity with real work environments builds confidence and improves employability at placement
+                        time.</p>
                 </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_11.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_12.jpeg"
-                        alt="events">
-                </div>
-
-                <!-- events 1 to 12 -->
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_13.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_14.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_15.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_16.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_17.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_18.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_19.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_20.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_21.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_22.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_23.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_24.jpeg"
-                        alt="events">
-                </div>
-
-                <!-- events 24 to 36 -->
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_25.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_26.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_27.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_28.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_29.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_30.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_31.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_32.jpeg"
-                        alt="events"></div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_33.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_34.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile tall" data-category="events"><img src="../images/Gallery/Events/Img_35.jpeg"
-                        alt="events">
-                </div>
-                <div class="gallery-tile" data-category="events"><img src="../images/Gallery/Events/Img_36.jpeg"
-                        alt="events">
-                </div>
-
-
             </div>
         </div>
     </section>
 
-    <!-- LIGHTBOX -->
-    <div class="lightbox-overlay" id="lightboxOverlay">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
-        <img class="lightbox-img" id="lightboxImg" src="" alt="">
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
-        <div class="lightbox-counter" id="lightboxCounter"></div>
-    </div>
+    <!-- GALLERY -->
+    <section class="admit-section" id="visit-gallery">
+        <div class="admit-wrap" style="max-width: 1100px;">
+            <span class="founder-eyebrow">In Pictures</span>
+            <h2 class="admit-heading">Glimpses from Our Industrial Visits</h2>
+
+            <div class="visit-gallery-grid">
+                <div class="gallery-item"><img src="../images/IV_Training/Img_1.png" alt="Industrial Visit"></div>
+                <div class="gallery-item"><img src="../images/IV_Training/Img_2.png" alt="Industrial Visit"></div>
+                <div class="gallery-item"><img src="../images/IV_Training/Img_3.png" alt="Industrial Visit"></div>
+                <div class="gallery-item"><img src="../images/IV_Training/Img_4.png" alt="Industrial Visit"></div>
+                <div class="gallery-item"><img src="../images/IV_Training/Img_5.png" alt="Industrial Visit"></div>
+                <div class="gallery-item"><img src="../images/IV_Training/Img_6.png" alt="Industrial Visit"></div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="wrap">
             <div class="foot-grid">
@@ -1593,7 +1182,7 @@
         });
     </script>
     <script>
-        const animatedSections = document.querySelectorAll('.page-hero, .admit-section, .gallery-section');
+        const animatedSections = document.querySelectorAll('.page-hero, .admit-section, .recruiters-grid-section');
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('in-view');
@@ -1602,88 +1191,28 @@
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
         animatedSections.forEach(el => sectionObserver.observe(el));
     </script>
+
     <script>
-        // FILTER LOGIC
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const tiles = document.querySelectorAll('.gallery-tile');
+        const tiltItems = document.querySelectorAll('.gallery-item');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        tiltItems.forEach(item => {
+            item.addEventListener('mousemove', (e) => {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
 
-                const filter = btn.dataset.filter;
-                tiles.forEach(tile => {
-                    if (filter === 'all' || tile.dataset.category.split(' ').includes(filter)) {
-                        tile.classList.remove('hidden');
-                    } else {
-                        tile.classList.add('hidden');
-                    }
-                });
+                item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
             });
-        });
 
-        // LIGHTBOX LOGIC
-        const lightbox = document.getElementById('lightboxOverlay');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        const lightboxCounter = document.getElementById('lightboxCounter');
-
-        let currentIndex = 0;
-        let visibleImages = [];
-
-        function updateVisibleImages() {
-            visibleImages = Array.from(tiles)
-                .filter(tile => !tile.classList.contains('hidden'))
-                .map(tile => tile.querySelector('img').src);
-        }
-
-        function openLightbox(index) {
-            updateVisibleImages();
-            currentIndex = index;
-            lightboxImg.src = visibleImages[currentIndex];
-            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleImages.length}`;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function showImage(index) {
-            currentIndex = (index + visibleImages.length) % visibleImages.length;
-            lightboxImg.src = visibleImages[currentIndex];
-            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleImages.length}`;
-        }
-
-        tiles.forEach((tile, i) => {
-            tile.addEventListener('click', () => {
-                updateVisibleImages();
-                const visibleIndex = Array.from(tiles).filter(t => !t.classList.contains('hidden')).indexOf(tile);
-                openLightbox(visibleIndex);
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = '';
             });
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxNext.addEventListener('click', () => showImage(currentIndex + 1));
-        lightboxPrev.addEventListener('click', () => showImage(currentIndex - 1));
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
-            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
         });
     </script>
-
 
 
 
